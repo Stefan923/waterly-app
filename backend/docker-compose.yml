@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  mongodb-container:
+    image: mongo:latest
+    container_name: mongodb-container
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=waterly
+      - MONGO_INITDB_ROOT_PASSWORD=waterlyPassword
+      - MONGO_INITDB_DATABASE=waterly
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb-data-container:/data/db
+    networks:
+      - gateway
+
+  backend-container:
+    image: docker-waterly
+    container_name: backend-container
+    restart: always
+    environment:
+      - DB_IP=mongodb-container
+      - DB_PORT=27017
+      - DB_USER=waterly
+      - DB_PASSWORD=waterlyPassword
+      - DB_DBNAME=waterly
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongodb-container
+    networks:
+      - gateway
+
+volumes:
+  mongodb-data-container:
+
+networks:
+  gateway:
+    driver: bridge

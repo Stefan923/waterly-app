@@ -1,0 +1,1394 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F812FBA52A14FA5D00A00974 /* WCSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F812FBA42A14FA5D00A00974 /* WCSessionManager.swift */; };
+		F8138B9C2A0EECA900CCF888 /* GoogleAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8138B9B2A0EECA900CCF888 /* GoogleAuthentication.swift */; };
+		F813B4A329ED8639002D1954 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F813B4A229ED8639002D1954 /* IconButton.swift */; };
+		F813B4A729EDC3EE002D1954 /* RoundedProgressViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F813B4A629EDC3EE002D1954 /* RoundedProgressViewStyle.swift */; };
+		F813B4AC29EDD37E002D1954 /* RoundedProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F813B4AB29EDD37E002D1954 /* RoundedProgressView.swift */; };
+		F81A75092927666300B28656 /* WaterlyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81A75082927666300B28656 /* WaterlyApp.swift */; };
+		F81A750B2927666300B28656 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81A750A2927666300B28656 /* SplashScreenView.swift */; };
+		F81A750D2927666300B28656 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F81A750C2927666300B28656 /* Assets.xcassets */; };
+		F81A75102927666300B28656 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F81A750F2927666300B28656 /* Preview Assets.xcassets */; };
+		F81A751A2927666300B28656 /* drink_nowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81A75192927666300B28656 /* drink_nowTests.swift */; };
+		F81A75242927666400B28656 /* drink_nowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81A75232927666400B28656 /* drink_nowUITests.swift */; };
+		F81A75262927666400B28656 /* drink_nowUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81A75252927666400B28656 /* drink_nowUITestsLaunchTests.swift */; };
+		F81A752C2927666400B28656 /* Waterly.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F81A752B2927666400B28656 /* Waterly.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F81A75312927666400B28656 /* WaterlyWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81A75302927666400B28656 /* WaterlyWatchApp.swift */; };
+		F81A75332927666400B28656 /* ActionNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81A75322927666400B28656 /* ActionNotificationView.swift */; };
+		F81A75352927666400B28656 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F81A75342927666400B28656 /* Assets.xcassets */; };
+		F81A75382927666400B28656 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F81A75372927666400B28656 /* Preview Assets.xcassets */; };
+		F81A75422927666400B28656 /* drink_now_Watch_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81A75412927666400B28656 /* drink_now_Watch_AppTests.swift */; };
+		F81A754C2927666400B28656 /* drink_now_Watch_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81A754B2927666400B28656 /* drink_now_Watch_AppUITests.swift */; };
+		F81A754E2927666400B28656 /* drink_now_Watch_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81A754D2927666400B28656 /* drink_now_Watch_AppUITestsLaunchTests.swift */; };
+		F81EE4042A1E323C00534B83 /* UserAccountToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81EE4032A1E323C00534B83 /* UserAccountToken.swift */; };
+		F81EE4062A1E8CBB00534B83 /* ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81EE4052A1E8CBB00534B83 /* ErrorAlert.swift */; };
+		F81EE40A2A21048500534B83 /* SpinningCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81EE4092A21048500534B83 /* SpinningCircle.swift */; };
+		F81EE40C2A21070700534B83 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81EE40B2A21070700534B83 /* LoadingView.swift */; };
+		F81EE40E2A21159C00534B83 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81EE40D2A21159C00534B83 /* Validator.swift */; };
+		F81EE4132A21167C00534B83 /* EmailValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81EE4122A21167C00534B83 /* EmailValidator.swift */; };
+		F81EE4152A21173200534B83 /* PasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81EE4142A21173200534B83 /* PasswordValidator.swift */; };
+		F81EE4182A22098200534B83 /* ConfirmCodeValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81EE4172A22098200534B83 /* ConfirmCodeValidator.swift */; };
+		F81EE41A2A220A9F00534B83 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81EE4192A220A9F00534B83 /* UserAccount.swift */; };
+		F81EE41C2A220F5D00534B83 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81EE41B2A220F5D00534B83 /* UserInfo.swift */; };
+		F81EE41E2A220FBB00534B83 /* GenderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81EE41D2A220FBB00534B83 /* GenderType.swift */; };
+		F81EE4202A22101800534B83 /* UserAccountType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81EE41F2A22101800534B83 /* UserAccountType.swift */; };
+		F81EE4222A2223D300534B83 /* UserAccountConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81EE4212A2223D300534B83 /* UserAccountConfirmation.swift */; };
+		F81EE4242A22510500534B83 /* NameValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81EE4232A22510500534B83 /* NameValidator.swift */; };
+		F81EE4262A22554600534B83 /* DateOfBirthValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81EE4252A22554600534B83 /* DateOfBirthValidator.swift */; };
+		F81EE4282A2255A200534B83 /* WeightHeightValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81EE4272A2255A200534B83 /* WeightHeightValidator.swift */; };
+		F81EE42A2A22785B00534B83 /* OutlinedDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81EE4292A22785B00534B83 /* OutlinedDatePicker.swift */; };
+		F81EE42D2A251FC200534B83 /* DateStringConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81EE42C2A251FC200534B83 /* DateStringConverter.swift */; };
+		F82BBDAF29BE593F002933B7 /* UnauthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82BBDAE29BE593F002933B7 /* UnauthenticatedView.swift */; };
+		F82BBDB129BE60B9002933B7 /* WaveEdgedRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82BBDB029BE60B9002933B7 /* WaveEdgedRectangle.swift */; };
+		F82BBDB329BE757F002933B7 /* RoundedButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82BBDB229BE757F002933B7 /* RoundedButtonStyle.swift */; };
+		F82BBDB629BE78AB002933B7 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82BBDB529BE78AB002933B7 /* RoundedButton.swift */; };
+		F83776CE29E31E920024D972 /* RoundedCornersRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83776CD29E31E920024D972 /* RoundedCornersRectangle.swift */; };
+		F837877E29FBF43F00CD0728 /* ConsumptionInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F837877D29FBF43F00CD0728 /* ConsumptionInputView.swift */; };
+		F86C958329D3502000FC01DB /* OutlinedTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86C958229D3502000FC01DB /* OutlinedTextFieldStyle.swift */; };
+		F875478429E326FD003CA751 /* RectangleCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F875478329E326FD003CA751 /* RectangleCorner.swift */; };
+		F875478629E36706003CA751 /* ShapeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F875478529E36706003CA751 /* ShapeExtension.swift */; };
+		F88066332A0E4951002F839E /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = F88066322A0E4951002F839E /* GoogleSignIn */; };
+		F88066352A0E4951002F839E /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F88066342A0E4951002F839E /* GoogleSignInSwift */; };
+		F8B07A4B29D20D1600756055 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B07A4A29D20D1600756055 /* Router.swift */; };
+		F8B07A4D29D20EB000756055 /* SignInWithEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B07A4C29D20EB000756055 /* SignInWithEmailView.swift */; };
+		F8B07A5029D2111700756055 /* SignUpUserDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B07A4F29D2111700756055 /* SignUpUserDetailsView.swift */; };
+		F8C40BAA2A1D70EE0070271A /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C40BA92A1D70EE0070271A /* AuthenticationService.swift */; };
+		F8C608212A0AF01D0014F008 /* NotificationScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C608202A0AF01D0014F008 /* NotificationScheduler.swift */; };
+		F8D922A02A0087D200477D2A /* IncrementalInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D9229F2A0087D200477D2A /* IncrementalInput.swift */; };
+		F8D922A22A01295A00477D2A /* CaptionBullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D922A12A01295A00477D2A /* CaptionBullet.swift */; };
+		F8D922A42A012D2700477D2A /* CaptionBulletPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D922A32A012D2700477D2A /* CaptionBulletPanel.swift */; };
+		F8D922A62A03118700477D2A /* RoundedCornersButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D922A52A03118700477D2A /* RoundedCornersButton.swift */; };
+		F8D922A82A031BF000477D2A /* ConsumptionStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D922A72A031BF000477D2A /* ConsumptionStatisticsView.swift */; };
+		F8D922AA2A0380DE00477D2A /* UncertainGesturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D922A92A0380DE00477D2A /* UncertainGesturesView.swift */; };
+		F8D922B42A06C77A00477D2A /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D922B32A06C77A00477D2A /* Router.swift */; };
+		F8D922B72A06CBBE00477D2A /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D922B62A06CBBE00477D2A /* KeyboardView.swift */; };
+		F8E4E73E29DB6D5C004BB0A4 /* ConfirmAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E4E73D29DB6D5C004BB0A4 /* ConfirmAccountView.swift */; };
+		F8E4E74029DC0C31004BB0A4 /* HomeStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E4E73F29DC0C31004BB0A4 /* HomeStatsView.swift */; };
+		F8E4E74229DC0C44004BB0A4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E4E74129DC0C44004BB0A4 /* SettingsView.swift */; };
+		F8F17D0329CBACD5005D891C /* SignUpWithEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F17D0229CBACD5005D891C /* SignUpWithEmailView.swift */; };
+		F8F5DBD52A142061005951AA /* DataTransferSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F5DBD42A142061005951AA /* DataTransferSender.swift */; };
+		F8F5DBD92A14313C005951AA /* WCSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F5DBD82A14313C005951AA /* WCSessionManager.swift */; };
+		F8F9712F29FFF7C000AB22F6 /* DropdownButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F9712E29FFF7C000AB22F6 /* DropdownButton.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F81A75162927666300B28656 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F81A74FD2927666200B28656 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F81A75042927666300B28656;
+			remoteInfo = "drink-now";
+		};
+		F81A75202927666400B28656 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F81A74FD2927666200B28656 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F81A75042927666300B28656;
+			remoteInfo = "drink-now";
+		};
+		F81A752D2927666400B28656 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F81A74FD2927666200B28656 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F81A752A2927666400B28656;
+			remoteInfo = "drink-now Watch App";
+		};
+		F81A753E2927666400B28656 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F81A74FD2927666200B28656 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F81A752A2927666400B28656;
+			remoteInfo = "drink-now Watch App";
+		};
+		F81A75482927666400B28656 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F81A74FD2927666200B28656 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F81A752A2927666400B28656;
+			remoteInfo = "drink-now Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F81A75542927666400B28656 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				F81A752C2927666400B28656 /* Waterly.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		F812FBA42A14FA5D00A00974 /* WCSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCSessionManager.swift; sourceTree = "<group>"; };
+		F8138B9A2A0EAEB100CCF888 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F8138B9B2A0EECA900CCF888 /* GoogleAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAuthentication.swift; sourceTree = "<group>"; };
+		F813B4A229ED8639002D1954 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
+		F813B4A629EDC3EE002D1954 /* RoundedProgressViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedProgressViewStyle.swift; sourceTree = "<group>"; };
+		F813B4AB29EDD37E002D1954 /* RoundedProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedProgressView.swift; sourceTree = "<group>"; };
+		F81A75052927666300B28656 /* Waterly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Waterly.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F81A75082927666300B28656 /* WaterlyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterlyApp.swift; sourceTree = "<group>"; };
+		F81A750A2927666300B28656 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		F81A750C2927666300B28656 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F81A750F2927666300B28656 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F81A75152927666300B28656 /* WaterlyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WaterlyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F81A75192927666300B28656 /* drink_nowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = drink_nowTests.swift; sourceTree = "<group>"; };
+		F81A751F2927666400B28656 /* WaterlyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WaterlyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F81A75232927666400B28656 /* drink_nowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = drink_nowUITests.swift; sourceTree = "<group>"; };
+		F81A75252927666400B28656 /* drink_nowUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = drink_nowUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F81A752B2927666400B28656 /* Waterly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Waterly.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F81A75302927666400B28656 /* WaterlyWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterlyWatchApp.swift; sourceTree = "<group>"; };
+		F81A75322927666400B28656 /* ActionNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionNotificationView.swift; sourceTree = "<group>"; };
+		F81A75342927666400B28656 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F81A75372927666400B28656 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F81A753D2927666400B28656 /* Waterly Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Waterly Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F81A75412927666400B28656 /* drink_now_Watch_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = drink_now_Watch_AppTests.swift; sourceTree = "<group>"; };
+		F81A75472927666400B28656 /* Waterly Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Waterly Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F81A754B2927666400B28656 /* drink_now_Watch_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = drink_now_Watch_AppUITests.swift; sourceTree = "<group>"; };
+		F81A754D2927666400B28656 /* drink_now_Watch_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = drink_now_Watch_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F81EE4032A1E323C00534B83 /* UserAccountToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountToken.swift; sourceTree = "<group>"; };
+		F81EE4052A1E8CBB00534B83 /* ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlert.swift; sourceTree = "<group>"; };
+		F81EE4092A21048500534B83 /* SpinningCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinningCircle.swift; sourceTree = "<group>"; };
+		F81EE40B2A21070700534B83 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		F81EE40D2A21159C00534B83 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		F81EE4122A21167C00534B83 /* EmailValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidator.swift; sourceTree = "<group>"; };
+		F81EE4142A21173200534B83 /* PasswordValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidator.swift; sourceTree = "<group>"; };
+		F81EE4172A22098200534B83 /* ConfirmCodeValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeValidator.swift; sourceTree = "<group>"; };
+		F81EE4192A220A9F00534B83 /* UserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
+		F81EE41B2A220F5D00534B83 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		F81EE41D2A220FBB00534B83 /* GenderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderType.swift; sourceTree = "<group>"; };
+		F81EE41F2A22101800534B83 /* UserAccountType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountType.swift; sourceTree = "<group>"; };
+		F81EE4212A2223D300534B83 /* UserAccountConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountConfirmation.swift; sourceTree = "<group>"; };
+		F81EE4232A22510500534B83 /* NameValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameValidator.swift; sourceTree = "<group>"; };
+		F81EE4252A22554600534B83 /* DateOfBirthValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateOfBirthValidator.swift; sourceTree = "<group>"; };
+		F81EE4272A2255A200534B83 /* WeightHeightValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightHeightValidator.swift; sourceTree = "<group>"; };
+		F81EE4292A22785B00534B83 /* OutlinedDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlinedDatePicker.swift; sourceTree = "<group>"; };
+		F81EE42C2A251FC200534B83 /* DateStringConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateStringConverter.swift; sourceTree = "<group>"; };
+		F82BBDAE29BE593F002933B7 /* UnauthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnauthenticatedView.swift; sourceTree = "<group>"; };
+		F82BBDB029BE60B9002933B7 /* WaveEdgedRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveEdgedRectangle.swift; sourceTree = "<group>"; };
+		F82BBDB229BE757F002933B7 /* RoundedButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButtonStyle.swift; sourceTree = "<group>"; };
+		F82BBDB529BE78AB002933B7 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		F83776CD29E31E920024D972 /* RoundedCornersRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornersRectangle.swift; sourceTree = "<group>"; };
+		F837877D29FBF43F00CD0728 /* ConsumptionInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumptionInputView.swift; sourceTree = "<group>"; };
+		F853AABF2A14B0C80017C24F /* Waterly.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Waterly.entitlements; sourceTree = "<group>"; };
+		F853AAC02A14B1360017C24F /* Waterly Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Waterly Watch App.entitlements"; sourceTree = "<group>"; };
+		F86C958229D3502000FC01DB /* OutlinedTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlinedTextFieldStyle.swift; sourceTree = "<group>"; };
+		F875478329E326FD003CA751 /* RectangleCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleCorner.swift; sourceTree = "<group>"; };
+		F875478529E36706003CA751 /* ShapeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeExtension.swift; sourceTree = "<group>"; };
+		F8B07A4A29D20D1600756055 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		F8B07A4C29D20EB000756055 /* SignInWithEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithEmailView.swift; sourceTree = "<group>"; };
+		F8B07A4F29D2111700756055 /* SignUpUserDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUserDetailsView.swift; sourceTree = "<group>"; };
+		F8C40BA92A1D70EE0070271A /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		F8C608202A0AF01D0014F008 /* NotificationScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationScheduler.swift; sourceTree = "<group>"; };
+		F8D9229F2A0087D200477D2A /* IncrementalInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncrementalInput.swift; sourceTree = "<group>"; };
+		F8D922A12A01295A00477D2A /* CaptionBullet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionBullet.swift; sourceTree = "<group>"; };
+		F8D922A32A012D2700477D2A /* CaptionBulletPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionBulletPanel.swift; sourceTree = "<group>"; };
+		F8D922A52A03118700477D2A /* RoundedCornersButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornersButton.swift; sourceTree = "<group>"; };
+		F8D922A72A031BF000477D2A /* ConsumptionStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumptionStatisticsView.swift; sourceTree = "<group>"; };
+		F8D922A92A0380DE00477D2A /* UncertainGesturesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UncertainGesturesView.swift; sourceTree = "<group>"; };
+		F8D922B32A06C77A00477D2A /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		F8D922B62A06CBBE00477D2A /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
+		F8E4E73D29DB6D5C004BB0A4 /* ConfirmAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmAccountView.swift; sourceTree = "<group>"; };
+		F8E4E73F29DC0C31004BB0A4 /* HomeStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStatsView.swift; sourceTree = "<group>"; };
+		F8E4E74129DC0C44004BB0A4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		F8F17D0229CBACD5005D891C /* SignUpWithEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWithEmailView.swift; sourceTree = "<group>"; };
+		F8F5DBD42A142061005951AA /* DataTransferSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransferSender.swift; sourceTree = "<group>"; };
+		F8F5DBD82A14313C005951AA /* WCSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCSessionManager.swift; sourceTree = "<group>"; };
+		F8F9712E29FFF7C000AB22F6 /* DropdownButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownButton.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F81A75022927666300B28656 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F88066332A0E4951002F839E /* GoogleSignIn in Frameworks */,
+				F88066352A0E4951002F839E /* GoogleSignInSwift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F81A75122927666300B28656 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F81A751C2927666400B28656 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F81A75282927666400B28656 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F81A753A2927666400B28656 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F81A75442927666400B28656 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F813B4AA29EDD363002D1954 /* progressview */ = {
+			isa = PBXGroup;
+			children = (
+				F813B4A629EDC3EE002D1954 /* RoundedProgressViewStyle.swift */,
+				F813B4AB29EDD37E002D1954 /* RoundedProgressView.swift */,
+			);
+			path = progressview;
+			sourceTree = "<group>";
+		};
+		F81A74FC2927666200B28656 = {
+			isa = PBXGroup;
+			children = (
+				F853AAC02A14B1360017C24F /* Waterly Watch App.entitlements */,
+				F81A75072927666300B28656 /* Waterly */,
+				F81A75182927666300B28656 /* WaterlyTests */,
+				F81A75222927666400B28656 /* WaterlyUITests */,
+				F81A752F2927666400B28656 /* WaterlyWatchApp */,
+				F81A75402927666400B28656 /* WaterlyWatchAppTests */,
+				F81A754A2927666400B28656 /* WaterlyWatchAppUITests */,
+				F81A75062927666300B28656 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F81A75062927666300B28656 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F81A75052927666300B28656 /* Waterly.app */,
+				F81A75152927666300B28656 /* WaterlyTests.xctest */,
+				F81A751F2927666400B28656 /* WaterlyUITests.xctest */,
+				F81A752B2927666400B28656 /* Waterly.app */,
+				F81A753D2927666400B28656 /* Waterly Watch AppTests.xctest */,
+				F81A75472927666400B28656 /* Waterly Watch AppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F81A75072927666300B28656 /* Waterly */ = {
+			isa = PBXGroup;
+			children = (
+				F81EE4112A2115E300534B83 /* src */,
+				F853AABF2A14B0C80017C24F /* Waterly.entitlements */,
+				F8138B9A2A0EAEB100CCF888 /* Info.plist */,
+				F81A750C2927666300B28656 /* Assets.xcassets */,
+				F81A750E2927666300B28656 /* Preview Content */,
+			);
+			path = Waterly;
+			sourceTree = "<group>";
+		};
+		F81A750E2927666300B28656 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				F81A750F2927666300B28656 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F81A75182927666300B28656 /* WaterlyTests */ = {
+			isa = PBXGroup;
+			children = (
+				F81A75192927666300B28656 /* drink_nowTests.swift */,
+			);
+			path = WaterlyTests;
+			sourceTree = "<group>";
+		};
+		F81A75222927666400B28656 /* WaterlyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F81A75232927666400B28656 /* drink_nowUITests.swift */,
+				F81A75252927666400B28656 /* drink_nowUITestsLaunchTests.swift */,
+			);
+			path = WaterlyUITests;
+			sourceTree = "<group>";
+		};
+		F81A752F2927666400B28656 /* WaterlyWatchApp */ = {
+			isa = PBXGroup;
+			children = (
+				F8D922B52A06CBA500477D2A /* ui */,
+				F8D922B22A06C47A00477D2A /* screen */,
+				F81A75302927666400B28656 /* WaterlyWatchApp.swift */,
+				F81A75342927666400B28656 /* Assets.xcassets */,
+				F81A75362927666400B28656 /* Preview Content */,
+				F8D922B32A06C77A00477D2A /* Router.swift */,
+				F8F5DBD42A142061005951AA /* DataTransferSender.swift */,
+				F812FBA42A14FA5D00A00974 /* WCSessionManager.swift */,
+			);
+			path = WaterlyWatchApp;
+			sourceTree = "<group>";
+		};
+		F81A75362927666400B28656 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				F81A75372927666400B28656 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F81A75402927666400B28656 /* WaterlyWatchAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				F81A75412927666400B28656 /* drink_now_Watch_AppTests.swift */,
+			);
+			path = WaterlyWatchAppTests;
+			sourceTree = "<group>";
+		};
+		F81A754A2927666400B28656 /* WaterlyWatchAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F81A754B2927666400B28656 /* drink_now_Watch_AppUITests.swift */,
+				F81A754D2927666400B28656 /* drink_now_Watch_AppUITestsLaunchTests.swift */,
+			);
+			path = WaterlyWatchAppUITests;
+			sourceTree = "<group>";
+		};
+		F81EE4072A1E915E00534B83 /* service */ = {
+			isa = PBXGroup;
+			children = (
+				F8C40BA92A1D70EE0070271A /* AuthenticationService.swift */,
+			);
+			path = service;
+			sourceTree = "<group>";
+		};
+		F81EE4082A21046B00534B83 /* loading */ = {
+			isa = PBXGroup;
+			children = (
+				F81EE4092A21048500534B83 /* SpinningCircle.swift */,
+				F81EE40B2A21070700534B83 /* LoadingView.swift */,
+			);
+			path = loading;
+			sourceTree = "<group>";
+		};
+		F81EE40F2A2115A200534B83 /* validator */ = {
+			isa = PBXGroup;
+			children = (
+				F81EE40D2A21159C00534B83 /* Validator.swift */,
+				F81EE4252A22554600534B83 /* DateOfBirthValidator.swift */,
+				F81EE4172A22098200534B83 /* ConfirmCodeValidator.swift */,
+				F81EE4122A21167C00534B83 /* EmailValidator.swift */,
+				F81EE4232A22510500534B83 /* NameValidator.swift */,
+				F81EE4142A21173200534B83 /* PasswordValidator.swift */,
+				F81EE4272A2255A200534B83 /* WeightHeightValidator.swift */,
+			);
+			path = validator;
+			sourceTree = "<group>";
+		};
+		F81EE4102A2115C400534B83 /* entity */ = {
+			isa = PBXGroup;
+			children = (
+				F81EE4052A1E8CBB00534B83 /* ErrorAlert.swift */,
+				F81EE41D2A220FBB00534B83 /* GenderType.swift */,
+				F81EE4192A220A9F00534B83 /* UserAccount.swift */,
+				F81EE4212A2223D300534B83 /* UserAccountConfirmation.swift */,
+				F81EE41F2A22101800534B83 /* UserAccountType.swift */,
+				F81EE41B2A220F5D00534B83 /* UserInfo.swift */,
+				F81EE4032A1E323C00534B83 /* UserAccountToken.swift */,
+			);
+			path = entity;
+			sourceTree = "<group>";
+		};
+		F81EE4112A2115E300534B83 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				F81EE42B2A251F4F00534B83 /* util */,
+				F81EE40F2A2115A200534B83 /* validator */,
+				F81EE4072A1E915E00534B83 /* service */,
+				F81EE4102A2115C400534B83 /* entity */,
+				F86C958129D34FF000FC01DB /* ui */,
+				F827DACA29C1000200D2F79D /* screen */,
+				F8138B9B2A0EECA900CCF888 /* GoogleAuthentication.swift */,
+				F8C608202A0AF01D0014F008 /* NotificationScheduler.swift */,
+				F8B07A4A29D20D1600756055 /* Router.swift */,
+				F8F5DBD82A14313C005951AA /* WCSessionManager.swift */,
+				F81A75082927666300B28656 /* WaterlyApp.swift */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		F81EE4162A22093B00534B83 /* authentication */ = {
+			isa = PBXGroup;
+			children = (
+				F82BBDAE29BE593F002933B7 /* UnauthenticatedView.swift */,
+				F8F17D0229CBACD5005D891C /* SignUpWithEmailView.swift */,
+				F8B07A4F29D2111700756055 /* SignUpUserDetailsView.swift */,
+				F8B07A4C29D20EB000756055 /* SignInWithEmailView.swift */,
+				F8E4E73D29DB6D5C004BB0A4 /* ConfirmAccountView.swift */,
+			);
+			path = authentication;
+			sourceTree = "<group>";
+		};
+		F81EE42B2A251F4F00534B83 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				F81EE42C2A251FC200534B83 /* DateStringConverter.swift */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
+		F827DACA29C1000200D2F79D /* screen */ = {
+			isa = PBXGroup;
+			children = (
+				F81EE4162A22093B00534B83 /* authentication */,
+				F81A750A2927666300B28656 /* SplashScreenView.swift */,
+				F8E4E73F29DC0C31004BB0A4 /* HomeStatsView.swift */,
+				F8E4E74129DC0C44004BB0A4 /* SettingsView.swift */,
+				F8D922A72A031BF000477D2A /* ConsumptionStatisticsView.swift */,
+				F8D922A92A0380DE00477D2A /* UncertainGesturesView.swift */,
+			);
+			path = screen;
+			sourceTree = "<group>";
+		};
+		F82BBDB429BE787B002933B7 /* button */ = {
+			isa = PBXGroup;
+			children = (
+				F82BBDB229BE757F002933B7 /* RoundedButtonStyle.swift */,
+				F82BBDB529BE78AB002933B7 /* RoundedButton.swift */,
+				F813B4A229ED8639002D1954 /* IconButton.swift */,
+				F8F9712E29FFF7C000AB22F6 /* DropdownButton.swift */,
+				F8D922A52A03118700477D2A /* RoundedCornersButton.swift */,
+			);
+			path = button;
+			sourceTree = "<group>";
+		};
+		F83776CF29E31F140024D972 /* rectangle */ = {
+			isa = PBXGroup;
+			children = (
+				F83776CD29E31E920024D972 /* RoundedCornersRectangle.swift */,
+				F82BBDB029BE60B9002933B7 /* WaveEdgedRectangle.swift */,
+				F875478329E326FD003CA751 /* RectangleCorner.swift */,
+			);
+			path = rectangle;
+			sourceTree = "<group>";
+		};
+		F86C958129D34FF000FC01DB /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				F81EE4082A21046B00534B83 /* loading */,
+				F8D9229E2A00879B00477D2A /* input */,
+				F813B4AA29EDD363002D1954 /* progressview */,
+				F83776CF29E31F140024D972 /* rectangle */,
+				F82BBDB429BE787B002933B7 /* button */,
+				F86C958229D3502000FC01DB /* OutlinedTextFieldStyle.swift */,
+				F875478529E36706003CA751 /* ShapeExtension.swift */,
+				F8D922A12A01295A00477D2A /* CaptionBullet.swift */,
+				F8D922A32A012D2700477D2A /* CaptionBulletPanel.swift */,
+				F81EE4292A22785B00534B83 /* OutlinedDatePicker.swift */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		F8D9229E2A00879B00477D2A /* input */ = {
+			isa = PBXGroup;
+			children = (
+				F8D9229F2A0087D200477D2A /* IncrementalInput.swift */,
+			);
+			path = input;
+			sourceTree = "<group>";
+		};
+		F8D922B22A06C47A00477D2A /* screen */ = {
+			isa = PBXGroup;
+			children = (
+				F81A75322927666400B28656 /* ActionNotificationView.swift */,
+				F837877D29FBF43F00CD0728 /* ConsumptionInputView.swift */,
+			);
+			path = screen;
+			sourceTree = "<group>";
+		};
+		F8D922B52A06CBA500477D2A /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				F8D922B62A06CBBE00477D2A /* KeyboardView.swift */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F81A75042927666300B28656 /* Waterly */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F81A75552927666400B28656 /* Build configuration list for PBXNativeTarget "Waterly" */;
+			buildPhases = (
+				F81A75012927666300B28656 /* Sources */,
+				F81A75022927666300B28656 /* Frameworks */,
+				F81A75032927666300B28656 /* Resources */,
+				F81A75542927666400B28656 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F81A752E2927666400B28656 /* PBXTargetDependency */,
+			);
+			name = Waterly;
+			packageProductDependencies = (
+				F88066322A0E4951002F839E /* GoogleSignIn */,
+				F88066342A0E4951002F839E /* GoogleSignInSwift */,
+			);
+			productName = "drink-now";
+			productReference = F81A75052927666300B28656 /* Waterly.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F81A75142927666300B28656 /* WaterlyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F81A75582927666400B28656 /* Build configuration list for PBXNativeTarget "WaterlyTests" */;
+			buildPhases = (
+				F81A75112927666300B28656 /* Sources */,
+				F81A75122927666300B28656 /* Frameworks */,
+				F81A75132927666300B28656 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F81A75172927666300B28656 /* PBXTargetDependency */,
+			);
+			name = WaterlyTests;
+			productName = "drink-nowTests";
+			productReference = F81A75152927666300B28656 /* WaterlyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F81A751E2927666400B28656 /* WaterlyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F81A755B2927666400B28656 /* Build configuration list for PBXNativeTarget "WaterlyUITests" */;
+			buildPhases = (
+				F81A751B2927666400B28656 /* Sources */,
+				F81A751C2927666400B28656 /* Frameworks */,
+				F81A751D2927666400B28656 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F81A75212927666400B28656 /* PBXTargetDependency */,
+			);
+			name = WaterlyUITests;
+			productName = "drink-nowUITests";
+			productReference = F81A751F2927666400B28656 /* WaterlyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		F81A752A2927666400B28656 /* Waterly Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F81A75512927666400B28656 /* Build configuration list for PBXNativeTarget "Waterly Watch App" */;
+			buildPhases = (
+				F81A75272927666400B28656 /* Sources */,
+				F81A75282927666400B28656 /* Frameworks */,
+				F81A75292927666400B28656 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Waterly Watch App";
+			productName = "drink-now Watch App";
+			productReference = F81A752B2927666400B28656 /* Waterly.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F81A753C2927666400B28656 /* Waterly Watch AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F81A755E2927666400B28656 /* Build configuration list for PBXNativeTarget "Waterly Watch AppTests" */;
+			buildPhases = (
+				F81A75392927666400B28656 /* Sources */,
+				F81A753A2927666400B28656 /* Frameworks */,
+				F81A753B2927666400B28656 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F81A753F2927666400B28656 /* PBXTargetDependency */,
+			);
+			name = "Waterly Watch AppTests";
+			productName = "drink-now Watch AppTests";
+			productReference = F81A753D2927666400B28656 /* Waterly Watch AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F81A75462927666400B28656 /* Waterly Watch AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F81A75612927666400B28656 /* Build configuration list for PBXNativeTarget "Waterly Watch AppUITests" */;
+			buildPhases = (
+				F81A75432927666400B28656 /* Sources */,
+				F81A75442927666400B28656 /* Frameworks */,
+				F81A75452927666400B28656 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F81A75492927666400B28656 /* PBXTargetDependency */,
+			);
+			name = "Waterly Watch AppUITests";
+			productName = "drink-now Watch AppUITests";
+			productReference = F81A75472927666400B28656 /* Waterly Watch AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F81A74FD2927666200B28656 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1410;
+				LastUpgradeCheck = 1410;
+				TargetAttributes = {
+					F81A75042927666300B28656 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+					F81A75142927666300B28656 = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = F81A75042927666300B28656;
+					};
+					F81A751E2927666400B28656 = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = F81A75042927666300B28656;
+					};
+					F81A752A2927666400B28656 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+					F81A753C2927666400B28656 = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = F81A752A2927666400B28656;
+					};
+					F81A75462927666400B28656 = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = F81A752A2927666400B28656;
+					};
+				};
+			};
+			buildConfigurationList = F81A75002927666200B28656 /* Build configuration list for PBXProject "Waterly" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F81A74FC2927666200B28656;
+			packageReferences = (
+				F88066312A0E4951002F839E /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+			);
+			productRefGroup = F81A75062927666300B28656 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F81A75042927666300B28656 /* Waterly */,
+				F81A75142927666300B28656 /* WaterlyTests */,
+				F81A751E2927666400B28656 /* WaterlyUITests */,
+				F81A752A2927666400B28656 /* Waterly Watch App */,
+				F81A753C2927666400B28656 /* Waterly Watch AppTests */,
+				F81A75462927666400B28656 /* Waterly Watch AppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F81A75032927666300B28656 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F81A75102927666300B28656 /* Preview Assets.xcassets in Resources */,
+				F81A750D2927666300B28656 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F81A75132927666300B28656 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F81A751D2927666400B28656 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F81A75292927666400B28656 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F81A75382927666400B28656 /* Preview Assets.xcassets in Resources */,
+				F81A75352927666400B28656 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F81A753B2927666400B28656 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F81A75452927666400B28656 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F81A75012927666300B28656 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8C608212A0AF01D0014F008 /* NotificationScheduler.swift in Sources */,
+				F813B4A329ED8639002D1954 /* IconButton.swift in Sources */,
+				F8D922AA2A0380DE00477D2A /* UncertainGesturesView.swift in Sources */,
+				F8D922A42A012D2700477D2A /* CaptionBulletPanel.swift in Sources */,
+				F8F9712F29FFF7C000AB22F6 /* DropdownButton.swift in Sources */,
+				F8B07A4D29D20EB000756055 /* SignInWithEmailView.swift in Sources */,
+				F81EE4132A21167C00534B83 /* EmailValidator.swift in Sources */,
+				F8B07A4B29D20D1600756055 /* Router.swift in Sources */,
+				F8F17D0329CBACD5005D891C /* SignUpWithEmailView.swift in Sources */,
+				F8D922A22A01295A00477D2A /* CaptionBullet.swift in Sources */,
+				F8D922A62A03118700477D2A /* RoundedCornersButton.swift in Sources */,
+				F8D922A02A0087D200477D2A /* IncrementalInput.swift in Sources */,
+				F8E4E74029DC0C31004BB0A4 /* HomeStatsView.swift in Sources */,
+				F82BBDAF29BE593F002933B7 /* UnauthenticatedView.swift in Sources */,
+				F81EE41E2A220FBB00534B83 /* GenderType.swift in Sources */,
+				F81EE4202A22101800534B83 /* UserAccountType.swift in Sources */,
+				F8B07A5029D2111700756055 /* SignUpUserDetailsView.swift in Sources */,
+				F8E4E73E29DB6D5C004BB0A4 /* ConfirmAccountView.swift in Sources */,
+				F81EE42D2A251FC200534B83 /* DateStringConverter.swift in Sources */,
+				F81EE40A2A21048500534B83 /* SpinningCircle.swift in Sources */,
+				F8138B9C2A0EECA900CCF888 /* GoogleAuthentication.swift in Sources */,
+				F875478629E36706003CA751 /* ShapeExtension.swift in Sources */,
+				F8E4E74229DC0C44004BB0A4 /* SettingsView.swift in Sources */,
+				F8F5DBD92A14313C005951AA /* WCSessionManager.swift in Sources */,
+				F82BBDB329BE757F002933B7 /* RoundedButtonStyle.swift in Sources */,
+				F81EE4282A2255A200534B83 /* WeightHeightValidator.swift in Sources */,
+				F8C40BAA2A1D70EE0070271A /* AuthenticationService.swift in Sources */,
+				F83776CE29E31E920024D972 /* RoundedCornersRectangle.swift in Sources */,
+				F81EE4262A22554600534B83 /* DateOfBirthValidator.swift in Sources */,
+				F81EE41A2A220A9F00534B83 /* UserAccount.swift in Sources */,
+				F8D922A82A031BF000477D2A /* ConsumptionStatisticsView.swift in Sources */,
+				F81A750B2927666300B28656 /* SplashScreenView.swift in Sources */,
+				F813B4AC29EDD37E002D1954 /* RoundedProgressView.swift in Sources */,
+				F81EE4062A1E8CBB00534B83 /* ErrorAlert.swift in Sources */,
+				F86C958329D3502000FC01DB /* OutlinedTextFieldStyle.swift in Sources */,
+				F81EE40E2A21159C00534B83 /* Validator.swift in Sources */,
+				F81EE4242A22510500534B83 /* NameValidator.swift in Sources */,
+				F82BBDB629BE78AB002933B7 /* RoundedButton.swift in Sources */,
+				F81A75092927666300B28656 /* WaterlyApp.swift in Sources */,
+				F875478429E326FD003CA751 /* RectangleCorner.swift in Sources */,
+				F81EE4182A22098200534B83 /* ConfirmCodeValidator.swift in Sources */,
+				F81EE4222A2223D300534B83 /* UserAccountConfirmation.swift in Sources */,
+				F81EE42A2A22785B00534B83 /* OutlinedDatePicker.swift in Sources */,
+				F81EE41C2A220F5D00534B83 /* UserInfo.swift in Sources */,
+				F81EE4152A21173200534B83 /* PasswordValidator.swift in Sources */,
+				F82BBDB129BE60B9002933B7 /* WaveEdgedRectangle.swift in Sources */,
+				F81EE4042A1E323C00534B83 /* UserAccountToken.swift in Sources */,
+				F81EE40C2A21070700534B83 /* LoadingView.swift in Sources */,
+				F813B4A729EDC3EE002D1954 /* RoundedProgressViewStyle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F81A75112927666300B28656 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F81A751A2927666300B28656 /* drink_nowTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F81A751B2927666400B28656 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F81A75262927666400B28656 /* drink_nowUITestsLaunchTests.swift in Sources */,
+				F81A75242927666400B28656 /* drink_nowUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F81A75272927666400B28656 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8F5DBD52A142061005951AA /* DataTransferSender.swift in Sources */,
+				F8D922B42A06C77A00477D2A /* Router.swift in Sources */,
+				F81A75332927666400B28656 /* ActionNotificationView.swift in Sources */,
+				F837877E29FBF43F00CD0728 /* ConsumptionInputView.swift in Sources */,
+				F8D922B72A06CBBE00477D2A /* KeyboardView.swift in Sources */,
+				F81A75312927666400B28656 /* WaterlyWatchApp.swift in Sources */,
+				F812FBA52A14FA5D00A00974 /* WCSessionManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F81A75392927666400B28656 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F81A75422927666400B28656 /* drink_now_Watch_AppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F81A75432927666400B28656 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F81A754E2927666400B28656 /* drink_now_Watch_AppUITestsLaunchTests.swift in Sources */,
+				F81A754C2927666400B28656 /* drink_now_Watch_AppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F81A75172927666300B28656 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F81A75042927666300B28656 /* Waterly */;
+			targetProxy = F81A75162927666300B28656 /* PBXContainerItemProxy */;
+		};
+		F81A75212927666400B28656 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F81A75042927666300B28656 /* Waterly */;
+			targetProxy = F81A75202927666400B28656 /* PBXContainerItemProxy */;
+		};
+		F81A752E2927666400B28656 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F81A752A2927666400B28656 /* Waterly Watch App */;
+			targetProxy = F81A752D2927666400B28656 /* PBXContainerItemProxy */;
+		};
+		F81A753F2927666400B28656 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F81A752A2927666400B28656 /* Waterly Watch App */;
+			targetProxy = F81A753E2927666400B28656 /* PBXContainerItemProxy */;
+		};
+		F81A75492927666400B28656 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F81A752A2927666400B28656 /* Waterly Watch App */;
+			targetProxy = F81A75482927666400B28656 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F81A754F2927666400B28656 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Debug;
+		};
+		F81A75502927666400B28656 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Release;
+		};
+		F81A75522927666400B28656 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Waterly Watch App.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"WaterlyWatchApp/Preview Content\"";
+				DEVELOPMENT_TEAM = HCBJP99W8D;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = me.stefan923.WaterlyApp;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.stefan923.WaterlyApp.WatchKit;
+				PRODUCT_NAME = Waterly;
+				SDKROOT = watchos;
+				SKIP_INSTALL = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Debug;
+		};
+		F81A75532927666400B28656 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Waterly Watch App.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"WaterlyWatchApp/Preview Content\"";
+				DEVELOPMENT_TEAM = HCBJP99W8D;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = me.stefan923.WaterlyApp;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.stefan923.WaterlyApp.WatchKit;
+				PRODUCT_NAME = Waterly;
+				SDKROOT = watchos;
+				SKIP_INSTALL = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Release;
+		};
+		F81A75562927666400B28656 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Waterly/Waterly.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Waterly/Preview Content\"";
+				DEVELOPMENT_TEAM = HCBJP99W8D;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Waterly/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Waterly;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.stefan923.WaterlyApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F81A75572927666400B28656 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Waterly/Waterly.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Waterly/Preview Content\"";
+				DEVELOPMENT_TEAM = HCBJP99W8D;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Waterly/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Waterly;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.stefan923.WaterlyApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F81A75592927666400B28656 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HCBJP99W8D;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.stefan923.WaterlyAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Waterly.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Waterly";
+			};
+			name = Debug;
+		};
+		F81A755A2927666400B28656 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HCBJP99W8D;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.stefan923.WaterlyAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Waterly.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Waterly";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F81A755C2927666400B28656 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.stefan923.drink-nowUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "drink-now";
+			};
+			name = Debug;
+		};
+		F81A755D2927666400B28656 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.stefan923.drink-nowUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "drink-now";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F81A755F2927666400B28656 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.stefan923.drink-now-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Waterly Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Waterly Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Debug;
+		};
+		F81A75602927666400B28656 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.stefan923.drink-now-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Waterly Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Waterly Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Release;
+		};
+		F81A75622927666400B28656 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.stefan923.drink-now-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "drink-now Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Debug;
+		};
+		F81A75632927666400B28656 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.stefan923.drink-now-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "drink-now Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F81A75002927666200B28656 /* Build configuration list for PBXProject "Waterly" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F81A754F2927666400B28656 /* Debug */,
+				F81A75502927666400B28656 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F81A75512927666400B28656 /* Build configuration list for PBXNativeTarget "Waterly Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F81A75522927666400B28656 /* Debug */,
+				F81A75532927666400B28656 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F81A75552927666400B28656 /* Build configuration list for PBXNativeTarget "Waterly" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F81A75562927666400B28656 /* Debug */,
+				F81A75572927666400B28656 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F81A75582927666400B28656 /* Build configuration list for PBXNativeTarget "WaterlyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F81A75592927666400B28656 /* Debug */,
+				F81A755A2927666400B28656 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F81A755B2927666400B28656 /* Build configuration list for PBXNativeTarget "WaterlyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F81A755C2927666400B28656 /* Debug */,
+				F81A755D2927666400B28656 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F81A755E2927666400B28656 /* Build configuration list for PBXNativeTarget "Waterly Watch AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F81A755F2927666400B28656 /* Debug */,
+				F81A75602927666400B28656 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F81A75612927666400B28656 /* Build configuration list for PBXNativeTarget "Waterly Watch AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F81A75622927666400B28656 /* Debug */,
+				F81A75632927666400B28656 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F88066312A0E4951002F839E /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F88066322A0E4951002F839E /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F88066312A0E4951002F839E /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		F88066342A0E4951002F839E /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F88066312A0E4951002F839E /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = F81A74FD2927666200B28656 /* Project object */;
+}
