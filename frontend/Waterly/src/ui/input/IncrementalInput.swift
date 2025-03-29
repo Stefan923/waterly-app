@@ -8,13 +8,17 @@
 import SwiftUI
 
 struct IncrementalInput : View {
-    @State var value : Int
+    @Binding var value: Int
+    let measureUnit: String
+    let incrementStep: Int
+    let minValue: Int
+    let maxValue: Int
     
     var body: some View {
         GeometryReader { geometry in
             ZStack {
                 HStack(spacing: 0.0) {
-                    Text(String("\(value) ml"))
+                    Text(String("\(value) \(measureUnit)"))
                         .foregroundColor(Color("TextFieldFontColor"))
                         .font(.system(size: 17).weight(.semibold))
                         .frame(alignment: .leading)
@@ -23,13 +27,19 @@ struct IncrementalInput : View {
                     Spacer(minLength: 0.0)
                     
                     IconButton(icon: Image("minus-icon")) {
-                        value = value - 1
+                        let newValue = value - incrementStep
+                        if newValue >= minValue {
+                            value = newValue
+                        }
                     }
                     .frame(width: 32, height: 32, alignment: .trailing)
                     .padding([.trailing], 15.0)
                     
                     IconButton(icon: Image("plus-icon")) {
-                        value = value + 1
+                        let newValue = value + incrementStep
+                        if newValue <= maxValue {
+                            value = newValue
+                        }
                     }
                     .frame(width: 32, height: 32, alignment: .trailing)
                     .padding([.trailing], 20.0)
@@ -45,7 +55,7 @@ struct IncrementalInput_Previews : PreviewProvider {
         ZStack {
             Color("TextFieldEdgeColor")
                 .frame(width: 380.0, height: 60.0)
-            IncrementalInput(value: 0)
+            IncrementalInput(value: Binding.constant(0), measureUnit: "ml", incrementStep: 25, minValue: 0, maxValue: 2000)
                 .frame(width: 380.0, height: 60.0)
         }
     }

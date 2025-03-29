@@ -42,9 +42,7 @@ struct RoundedCornersButton : View {
                 VStack(spacing: 0.0) {
                     ZStack {
                         RoundedCornersRectangle(radius: self.radius, corners: self.corners)
-                            .fill(Color("TextFieldFillColor"),
-                                  strokeBorder: Color("TextFieldEdgeColor"),
-                                  lineWidth: 1.0)
+                            .fill(.white.shadow(.drop(radius: 2)))
                         
                         HStack {
                             if centerTitle {

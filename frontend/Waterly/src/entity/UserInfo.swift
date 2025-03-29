@@ -7,13 +7,13 @@
 
 import Foundation
 
-class UserInfo {
-    private var firstName: String
-    private var lastName: String
-    private var dateOfBirth: Date
-    private var gender: GenderType
-    private var weight: Double
-    private var height: Double
+class UserInfo: Codable {
+    var firstName: String
+    var lastName: String
+    var dateOfBirth: Date
+    var gender: GenderType
+    var weight: Double
+    var height: Double
     
     init(_ firstName: String, _ lastName: String, _ dateOfBirth: Date, _ gender: GenderType, _ weight: Double, _ height: Double) {
         self.firstName = firstName
@@ -24,38 +24,23 @@ class UserInfo {
         self.height = height
     }
     
-    func getFirstName() -> String {
-        return firstName
-    }
-    
-    func getLastName() -> String {
-        return lastName
-    }
-    
-    func getDateOfBirth() -> Date {
-        return dateOfBirth
-    }
-    
-    func getGender() -> GenderType {
-        return gender
-    }
-    
-    func getWeight() -> Double {
-        return weight
-    }
-    
-    func getHeight() -> Double {
-        return height
-    }
-    
     func toJSON() -> [String: Any] {
         return [
             "firstName": firstName,
             "lastName": lastName,
-            "dateOfBirth": DateStringConverter.convertDateToString(dateOfBirth),
+            "dateOfBirth": dateOfBirth.toDateString,
             "gender": gender.toString(),
             "weight": weight,
             "height": height
         ]
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case firstName
+        case lastName
+        case dateOfBirth
+        case gender
+        case weight
+        case height
     }
 }

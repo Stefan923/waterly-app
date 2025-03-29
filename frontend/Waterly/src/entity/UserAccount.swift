@@ -7,40 +7,26 @@
 
 import Foundation
 
-class UserAccount: Equatable {
-    private var email: String
-    private var accountType: UserAccountType
-    private var password: String
+class UserAccount: Equatable, Codable {
+    var email: String
+    var accountType: UserAccountType
+    var o2authToken: String
+    var password: String
     
-    init(_ email: String = "",
-         _ accountType: UserAccountType = .credentials,
-         _ password: String = "") {
+    enum CodingKeys: String, CodingKey {
+        case email
+        case accountType
+        case o2authToken
+        case password
+    }
+    
+    init(email: String = "",
+         accountType: UserAccountType = .credentials,
+         o2authToken: String = "",
+         password: String = "") {
         self.email = email
         self.accountType = accountType
-        self.password = password
-    }
-    
-    func getEmail() -> String {
-        return self.email
-    }
-    
-    func setEmail(_ email: String) -> Void {
-        self.email = email
-    }
-    
-    func getAccountType() -> UserAccountType {
-        return self.accountType
-    }
-    
-    func setAccountType(_ accountType: UserAccountType) -> Void {
-        self.accountType = accountType
-    }
-    
-    func getPassword() -> String {
-        return self.password
-    }
-    
-    func setPassword(_ password: String) -> Void {
+        self.o2authToken = o2authToken
         self.password = password
     }
     
@@ -48,11 +34,29 @@ class UserAccount: Equatable {
         return [
             "accountType": accountType.toString(),
             "email": email,
+            "o2authToken": o2authToken,
             "password": password
         ]
     }
     
     static func == (lhs: UserAccount, rhs: UserAccount) -> Bool {
-        return lhs.email == rhs.email && lhs.password == rhs.password && lhs.accountType == rhs.accountType
+        return lhs.email == rhs.email && lhs.o2authToken == rhs.o2authToken && lhs.password == rhs.password && lhs.accountType == rhs.accountType
+    }
+    
+    func saveToLocalData() {
+        let encoder = JSONEncoder()
+        encoder.keyEncodingStrategy = .convertToSnakeCase
+        if let encodedData = try? encoder.encode(self) {
+            UserDefaults.standard.set(encodedData, forKey: "UserAccount")
+        }
+    }
+
+    static func loadFromLocalData() -> UserAccount? {
+        if let encodedData = UserDefaults.standard.data(forKey: "UserAccount") {
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            return try? decoder.decode(UserAccount.self, from: encodedData)
+        }
+        return nil
     }
 }

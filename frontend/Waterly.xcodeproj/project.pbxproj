@@ -21,12 +21,17 @@
 		F81A75262927666400B28656 /* drink_nowUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81A75252927666400B28656 /* drink_nowUITestsLaunchTests.swift */; };
 		F81A752C2927666400B28656 /* Waterly.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F81A752B2927666400B28656 /* Waterly.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F81A75312927666400B28656 /* WaterlyWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81A75302927666400B28656 /* WaterlyWatchApp.swift */; };
-		F81A75332927666400B28656 /* ActionNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81A75322927666400B28656 /* ActionNotificationView.swift */; };
+		F81A75332927666400B28656 /* DrinkNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81A75322927666400B28656 /* DrinkNotificationView.swift */; };
 		F81A75352927666400B28656 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F81A75342927666400B28656 /* Assets.xcassets */; };
 		F81A75382927666400B28656 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F81A75372927666400B28656 /* Preview Assets.xcassets */; };
 		F81A75422927666400B28656 /* drink_now_Watch_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81A75412927666400B28656 /* drink_now_Watch_AppTests.swift */; };
 		F81A754C2927666400B28656 /* drink_now_Watch_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81A754B2927666400B28656 /* drink_now_Watch_AppUITests.swift */; };
 		F81A754E2927666400B28656 /* drink_now_Watch_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81A754D2927666400B28656 /* drink_now_Watch_AppUITestsLaunchTests.swift */; };
+		F81AD8762A37971A00341030 /* UserSettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81AD8752A37971A00341030 /* UserSettingsManager.swift */; };
+		F81AD8792A37A0A600341030 /* ScheduleSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81AD8782A37A0A600341030 /* ScheduleSettings.swift */; };
+		F81AD87B2A37A0C900341030 /* TimeRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81AD87A2A37A0C900341030 /* TimeRange.swift */; };
+		F81AD8812A38D6AA00341030 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81AD8802A38D6AA00341030 /* Time.swift */; };
+		F81AD8832A3945DA00341030 /* UserSettingsDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81AD8822A3945DA00341030 /* UserSettingsDto.swift */; };
 		F81EE4042A1E323C00534B83 /* UserAccountToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81EE4032A1E323C00534B83 /* UserAccountToken.swift */; };
 		F81EE4062A1E8CBB00534B83 /* ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81EE4052A1E8CBB00534B83 /* ErrorAlert.swift */; };
 		F81EE40A2A21048500534B83 /* SpinningCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81EE4092A21048500534B83 /* SpinningCircle.swift */; };
@@ -44,21 +49,52 @@
 		F81EE4262A22554600534B83 /* DateOfBirthValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81EE4252A22554600534B83 /* DateOfBirthValidator.swift */; };
 		F81EE4282A2255A200534B83 /* WeightHeightValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81EE4272A2255A200534B83 /* WeightHeightValidator.swift */; };
 		F81EE42A2A22785B00534B83 /* OutlinedDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81EE4292A22785B00534B83 /* OutlinedDatePicker.swift */; };
-		F81EE42D2A251FC200534B83 /* DateStringConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81EE42C2A251FC200534B83 /* DateStringConverter.swift */; };
+		F820C8152A40CAF20058F676 /* MealNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F820C8142A40CAF20058F676 /* MealNotificationView.swift */; };
+		F820C8172A40E8CF0058F676 /* TimeIntervalConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F820C8162A40E8CF0058F676 /* TimeIntervalConverter.swift */; };
 		F82BBDAF29BE593F002933B7 /* UnauthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82BBDAE29BE593F002933B7 /* UnauthenticatedView.swift */; };
 		F82BBDB129BE60B9002933B7 /* WaveEdgedRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82BBDB029BE60B9002933B7 /* WaveEdgedRectangle.swift */; };
 		F82BBDB329BE757F002933B7 /* RoundedButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82BBDB229BE757F002933B7 /* RoundedButtonStyle.swift */; };
 		F82BBDB629BE78AB002933B7 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82BBDB529BE78AB002933B7 /* RoundedButton.swift */; };
+		F82EE0FA2A4FAAAE004B4B2F /* PostphonedNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82EE0F92A4FAAAD004B4B2F /* PostphonedNotificationView.swift */; };
+		F82EE0FD2A50422A004B4B2F /* DateTimeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82EE0FC2A50422A004B4B2F /* DateTimeConverter.swift */; };
+		F82EE0FF2A50A438004B4B2F /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82EE0FE2A50A438004B4B2F /* UserProfileView.swift */; };
+		F82EE1012A50A4B5004B4B2F /* UserInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82EE1002A50A4B5004B4B2F /* UserInfoService.swift */; };
+		F82EE1032A50A5B0004B4B2F /* UserInfoDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82EE1022A50A5B0004B4B2F /* UserInfoDto.swift */; };
+		F82EE1052A50B2A1004B4B2F /* OutlinedPreviewTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82EE1042A50B2A1004B4B2F /* OutlinedPreviewTextField.swift */; };
+		F82EE1082A50BBD5004B4B2F /* EditUserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82EE1072A50BBD5004B4B2F /* EditUserProfileView.swift */; };
 		F83776CE29E31E920024D972 /* RoundedCornersRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83776CD29E31E920024D972 /* RoundedCornersRectangle.swift */; };
 		F837877E29FBF43F00CD0728 /* ConsumptionInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F837877D29FBF43F00CD0728 /* ConsumptionInputView.swift */; };
+		F83809D62A412570001D90CB /* ConsumptionUpdateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83809D52A412570001D90CB /* ConsumptionUpdateRequest.swift */; };
 		F86C958329D3502000FC01DB /* OutlinedTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86C958229D3502000FC01DB /* OutlinedTextFieldStyle.swift */; };
 		F875478429E326FD003CA751 /* RectangleCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F875478329E326FD003CA751 /* RectangleCorner.swift */; };
 		F875478629E36706003CA751 /* ShapeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F875478529E36706003CA751 /* ShapeExtension.swift */; };
 		F88066332A0E4951002F839E /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = F88066322A0E4951002F839E /* GoogleSignIn */; };
 		F88066352A0E4951002F839E /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F88066342A0E4951002F839E /* GoogleSignInSwift */; };
+		F887DC352A2970D80024278E /* UserSettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F887DC342A2970D80024278E /* UserSettingsService.swift */; };
+		F887DC372A2971A10024278E /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F887DC362A2971A10024278E /* UserSettings.swift */; };
+		F887DC392A2A87650024278E /* UserAccountTokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F887DC382A2A87650024278E /* UserAccountTokenManager.swift */; };
+		F8AF9D1F2A3C88D600FCDB66 /* ToggleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AF9D1E2A3C88D600FCDB66 /* ToggleInput.swift */; };
+		F8AF9D212A3E64D100FCDB66 /* Consumption.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AF9D202A3E64D100FCDB66 /* Consumption.swift */; };
+		F8AF9D232A3E653C00FCDB66 /* ConsumptionStatuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AF9D222A3E653C00FCDB66 /* ConsumptionStatuts.swift */; };
+		F8AF9D252A3E655100FCDB66 /* ConsumptionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AF9D242A3E655100FCDB66 /* ConsumptionType.swift */; };
+		F8AF9D272A3E66A800FCDB66 /* ConsumptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AF9D262A3E66A800FCDB66 /* ConsumptionService.swift */; };
+		F8AF9D292A3E74A000FCDB66 /* ConsumptionsDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AF9D282A3E74A000FCDB66 /* ConsumptionsDto.swift */; };
+		F8AF9D2B2A3F0A0400FCDB66 /* ConsumptionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AF9D2A2A3F0A0400FCDB66 /* ConsumptionInfo.swift */; };
+		F8AF9D312A3F9E8200FCDB66 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AF9D302A3F9E8200FCDB66 /* NotificationController.swift */; };
 		F8B07A4B29D20D1600756055 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B07A4A29D20D1600756055 /* Router.swift */; };
 		F8B07A4D29D20EB000756055 /* SignInWithEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B07A4C29D20EB000756055 /* SignInWithEmailView.swift */; };
 		F8B07A5029D2111700756055 /* SignUpUserDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B07A4F29D2111700756055 /* SignUpUserDetailsView.swift */; };
+		F8BEBD7E2A47CAB500610AB9 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BEBD7D2A47CAB500610AB9 /* DateExtension.swift */; };
+		F8BEBD802A47CB5C00610AB9 /* IntervalConsumption.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BEBD7F2A47CB5C00610AB9 /* IntervalConsumption.swift */; };
+		F8BEBD822A482F8400610AB9 /* IntervalConsumptionsDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BEBD812A482F8400610AB9 /* IntervalConsumptionsDto.swift */; };
+		F8BEBD842A48324E00610AB9 /* FloatExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BEBD832A48324E00610AB9 /* FloatExtension.swift */; };
+		F8BEBD872A48526900610AB9 /* OutlinedGenderPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BEBD862A48526900610AB9 /* OutlinedGenderPicker.swift */; };
+		F8BEBD892A4A2F8C00610AB9 /* ConsumptionNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BEBD882A4A2F8C00610AB9 /* ConsumptionNotificationView.swift */; };
+		F8BEBD8B2A4A424B00610AB9 /* OutlinedIncrementalInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BEBD8A2A4A424B00610AB9 /* OutlinedIncrementalInput.swift */; };
+		F8BEBD8D2A4A490A00610AB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BEBD8C2A4A490A00610AB9 /* AppDelegate.swift */; };
+		F8BEBD8F2A4B140D00610AB9 /* ConsumptionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BEBD8E2A4B140D00610AB9 /* ConsumptionRequest.swift */; };
+		F8BEBD912A4B5EB800610AB9 /* AddConsumptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BEBD902A4B5EB800610AB9 /* AddConsumptionView.swift */; };
+		F8BEBD932A4B618500610AB9 /* OutlinedConsumptionTypePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BEBD922A4B618500610AB9 /* OutlinedConsumptionTypePicker.swift */; };
 		F8C40BAA2A1D70EE0070271A /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C40BA92A1D70EE0070271A /* AuthenticationService.swift */; };
 		F8C608212A0AF01D0014F008 /* NotificationScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C608202A0AF01D0014F008 /* NotificationScheduler.swift */; };
 		F8D922A02A0087D200477D2A /* IncrementalInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D9229F2A0087D200477D2A /* IncrementalInput.swift */; };
@@ -66,9 +102,17 @@
 		F8D922A42A012D2700477D2A /* CaptionBulletPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D922A32A012D2700477D2A /* CaptionBulletPanel.swift */; };
 		F8D922A62A03118700477D2A /* RoundedCornersButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D922A52A03118700477D2A /* RoundedCornersButton.swift */; };
 		F8D922A82A031BF000477D2A /* ConsumptionStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D922A72A031BF000477D2A /* ConsumptionStatisticsView.swift */; };
-		F8D922AA2A0380DE00477D2A /* UncertainGesturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D922A92A0380DE00477D2A /* UncertainGesturesView.swift */; };
+		F8D922AA2A0380DE00477D2A /* PostphonedNotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D922A92A0380DE00477D2A /* PostphonedNotificationsView.swift */; };
 		F8D922B42A06C77A00477D2A /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D922B32A06C77A00477D2A /* Router.swift */; };
 		F8D922B72A06CBBE00477D2A /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D922B62A06CBBE00477D2A /* KeyboardView.swift */; };
+		F8D95A0F2A4CA9DD00DA73AA /* SensorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D95A0E2A4CA9DD00DA73AA /* SensorData.swift */; };
+		F8D95A112A4CB21A00DA73AA /* SensorDataRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D95A102A4CB21A00DA73AA /* SensorDataRecorder.swift */; };
+		F8D95A192A4D197300DA73AA /* DrinkActivityClassifier.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = F8D95A182A4D197300DA73AA /* DrinkActivityClassifier.mlpackage */; };
+		F8D95A1D2A4D911500DA73AA /* DrinkActivityClassifier2.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = F8D95A1C2A4D911500DA73AA /* DrinkActivityClassifier2.mlpackage */; };
+		F8D95A1F2A4D956800DA73AA /* DrinkActivityClassifier3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = F8D95A1E2A4D956800DA73AA /* DrinkActivityClassifier3.mlmodel */; };
+		F8D95A212A4E5F9C00DA73AA /* DrinkActivityDetectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D95A202A4E5F9C00DA73AA /* DrinkActivityDetectedView.swift */; };
+		F8DD722D2A34EF5C00C7B577 /* ScheduleSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DD722C2A34EF5C00C7B577 /* ScheduleSettingsView.swift */; };
+		F8DD72312A350E1400C7B577 /* TimeInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DD72302A350E1400C7B577 /* TimeInput.swift */; };
 		F8E4E73E29DB6D5C004BB0A4 /* ConfirmAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E4E73D29DB6D5C004BB0A4 /* ConfirmAccountView.swift */; };
 		F8E4E74029DC0C31004BB0A4 /* HomeStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E4E73F29DC0C31004BB0A4 /* HomeStatsView.swift */; };
 		F8E4E74229DC0C44004BB0A4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E4E74129DC0C44004BB0A4 /* SettingsView.swift */; };
@@ -93,13 +137,6 @@
 			remoteGlobalIDString = F81A75042927666300B28656;
 			remoteInfo = "drink-now";
 		};
-		F81A752D2927666400B28656 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F81A74FD2927666200B28656 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F81A752A2927666400B28656;
-			remoteInfo = "drink-now Watch App";
-		};
 		F81A753E2927666400B28656 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F81A74FD2927666200B28656 /* Project object */;
@@ -113,6 +150,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = F81A752A2927666400B28656;
 			remoteInfo = "drink-now Watch App";
+		};
+		F83809DF2A427CF1001D90CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F81A74FD2927666200B28656 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F81A752A2927666400B28656;
+			remoteInfo = "Waterly Watch App";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -149,7 +193,7 @@
 		F81A75252927666400B28656 /* drink_nowUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = drink_nowUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F81A752B2927666400B28656 /* Waterly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Waterly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F81A75302927666400B28656 /* WaterlyWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterlyWatchApp.swift; sourceTree = "<group>"; };
-		F81A75322927666400B28656 /* ActionNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionNotificationView.swift; sourceTree = "<group>"; };
+		F81A75322927666400B28656 /* DrinkNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkNotificationView.swift; sourceTree = "<group>"; };
 		F81A75342927666400B28656 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F81A75372927666400B28656 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F81A753D2927666400B28656 /* Waterly Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Waterly Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +201,11 @@
 		F81A75472927666400B28656 /* Waterly Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Waterly Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F81A754B2927666400B28656 /* drink_now_Watch_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = drink_now_Watch_AppUITests.swift; sourceTree = "<group>"; };
 		F81A754D2927666400B28656 /* drink_now_Watch_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = drink_now_Watch_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F81AD8752A37971A00341030 /* UserSettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsManager.swift; sourceTree = "<group>"; };
+		F81AD8782A37A0A600341030 /* ScheduleSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleSettings.swift; sourceTree = "<group>"; };
+		F81AD87A2A37A0C900341030 /* TimeRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeRange.swift; sourceTree = "<group>"; };
+		F81AD8802A38D6AA00341030 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
+		F81AD8822A3945DA00341030 /* UserSettingsDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsDto.swift; sourceTree = "<group>"; };
 		F81EE4032A1E323C00534B83 /* UserAccountToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountToken.swift; sourceTree = "<group>"; };
 		F81EE4052A1E8CBB00534B83 /* ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlert.swift; sourceTree = "<group>"; };
 		F81EE4092A21048500534B83 /* SpinningCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinningCircle.swift; sourceTree = "<group>"; };
@@ -174,21 +223,53 @@
 		F81EE4252A22554600534B83 /* DateOfBirthValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateOfBirthValidator.swift; sourceTree = "<group>"; };
 		F81EE4272A2255A200534B83 /* WeightHeightValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightHeightValidator.swift; sourceTree = "<group>"; };
 		F81EE4292A22785B00534B83 /* OutlinedDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlinedDatePicker.swift; sourceTree = "<group>"; };
-		F81EE42C2A251FC200534B83 /* DateStringConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateStringConverter.swift; sourceTree = "<group>"; };
+		F820C8112A3FA93D0058F676 /* Waterly-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Waterly-Watch-App-Info.plist"; sourceTree = "<group>"; };
+		F820C8142A40CAF20058F676 /* MealNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealNotificationView.swift; sourceTree = "<group>"; };
+		F820C8162A40E8CF0058F676 /* TimeIntervalConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalConverter.swift; sourceTree = "<group>"; };
 		F82BBDAE29BE593F002933B7 /* UnauthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnauthenticatedView.swift; sourceTree = "<group>"; };
 		F82BBDB029BE60B9002933B7 /* WaveEdgedRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveEdgedRectangle.swift; sourceTree = "<group>"; };
 		F82BBDB229BE757F002933B7 /* RoundedButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButtonStyle.swift; sourceTree = "<group>"; };
 		F82BBDB529BE78AB002933B7 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		F82EE0F92A4FAAAD004B4B2F /* PostphonedNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostphonedNotificationView.swift; sourceTree = "<group>"; };
+		F82EE0FC2A50422A004B4B2F /* DateTimeConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateTimeConverter.swift; path = ../../../../../../Users/stefan/.Trash/DateTimeConverter.swift; sourceTree = "<group>"; };
+		F82EE0FE2A50A438004B4B2F /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		F82EE1002A50A4B5004B4B2F /* UserInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoService.swift; sourceTree = "<group>"; };
+		F82EE1022A50A5B0004B4B2F /* UserInfoDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoDto.swift; sourceTree = "<group>"; };
+		F82EE1042A50B2A1004B4B2F /* OutlinedPreviewTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlinedPreviewTextField.swift; sourceTree = "<group>"; };
+		F82EE1072A50BBD5004B4B2F /* EditUserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserProfileView.swift; sourceTree = "<group>"; };
 		F83776CD29E31E920024D972 /* RoundedCornersRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornersRectangle.swift; sourceTree = "<group>"; };
 		F837877D29FBF43F00CD0728 /* ConsumptionInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumptionInputView.swift; sourceTree = "<group>"; };
+		F83809D52A412570001D90CB /* ConsumptionUpdateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumptionUpdateRequest.swift; sourceTree = "<group>"; };
 		F853AABF2A14B0C80017C24F /* Waterly.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Waterly.entitlements; sourceTree = "<group>"; };
 		F853AAC02A14B1360017C24F /* Waterly Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Waterly Watch App.entitlements"; sourceTree = "<group>"; };
 		F86C958229D3502000FC01DB /* OutlinedTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlinedTextFieldStyle.swift; sourceTree = "<group>"; };
 		F875478329E326FD003CA751 /* RectangleCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleCorner.swift; sourceTree = "<group>"; };
 		F875478529E36706003CA751 /* ShapeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeExtension.swift; sourceTree = "<group>"; };
+		F887DC342A2970D80024278E /* UserSettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsService.swift; sourceTree = "<group>"; };
+		F887DC362A2971A10024278E /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		F887DC382A2A87650024278E /* UserAccountTokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountTokenManager.swift; sourceTree = "<group>"; };
+		F8AF9D1E2A3C88D600FCDB66 /* ToggleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleInput.swift; sourceTree = "<group>"; };
+		F8AF9D202A3E64D100FCDB66 /* Consumption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consumption.swift; sourceTree = "<group>"; };
+		F8AF9D222A3E653C00FCDB66 /* ConsumptionStatuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumptionStatuts.swift; sourceTree = "<group>"; };
+		F8AF9D242A3E655100FCDB66 /* ConsumptionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumptionType.swift; sourceTree = "<group>"; };
+		F8AF9D262A3E66A800FCDB66 /* ConsumptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumptionService.swift; sourceTree = "<group>"; };
+		F8AF9D282A3E74A000FCDB66 /* ConsumptionsDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumptionsDto.swift; sourceTree = "<group>"; };
+		F8AF9D2A2A3F0A0400FCDB66 /* ConsumptionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumptionInfo.swift; sourceTree = "<group>"; };
+		F8AF9D302A3F9E8200FCDB66 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		F8B07A4A29D20D1600756055 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		F8B07A4C29D20EB000756055 /* SignInWithEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithEmailView.swift; sourceTree = "<group>"; };
 		F8B07A4F29D2111700756055 /* SignUpUserDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUserDetailsView.swift; sourceTree = "<group>"; };
+		F8BEBD7D2A47CAB500610AB9 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		F8BEBD7F2A47CB5C00610AB9 /* IntervalConsumption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalConsumption.swift; sourceTree = "<group>"; };
+		F8BEBD812A482F8400610AB9 /* IntervalConsumptionsDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalConsumptionsDto.swift; sourceTree = "<group>"; };
+		F8BEBD832A48324E00610AB9 /* FloatExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatExtension.swift; sourceTree = "<group>"; };
+		F8BEBD862A48526900610AB9 /* OutlinedGenderPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlinedGenderPicker.swift; sourceTree = "<group>"; };
+		F8BEBD882A4A2F8C00610AB9 /* ConsumptionNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumptionNotificationView.swift; sourceTree = "<group>"; };
+		F8BEBD8A2A4A424B00610AB9 /* OutlinedIncrementalInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlinedIncrementalInput.swift; sourceTree = "<group>"; };
+		F8BEBD8C2A4A490A00610AB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F8BEBD8E2A4B140D00610AB9 /* ConsumptionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumptionRequest.swift; sourceTree = "<group>"; };
+		F8BEBD902A4B5EB800610AB9 /* AddConsumptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddConsumptionView.swift; sourceTree = "<group>"; };
+		F8BEBD922A4B618500610AB9 /* OutlinedConsumptionTypePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlinedConsumptionTypePicker.swift; sourceTree = "<group>"; };
 		F8C40BA92A1D70EE0070271A /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		F8C608202A0AF01D0014F008 /* NotificationScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationScheduler.swift; sourceTree = "<group>"; };
 		F8D9229F2A0087D200477D2A /* IncrementalInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncrementalInput.swift; sourceTree = "<group>"; };
@@ -196,9 +277,18 @@
 		F8D922A32A012D2700477D2A /* CaptionBulletPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionBulletPanel.swift; sourceTree = "<group>"; };
 		F8D922A52A03118700477D2A /* RoundedCornersButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornersButton.swift; sourceTree = "<group>"; };
 		F8D922A72A031BF000477D2A /* ConsumptionStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumptionStatisticsView.swift; sourceTree = "<group>"; };
-		F8D922A92A0380DE00477D2A /* UncertainGesturesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UncertainGesturesView.swift; sourceTree = "<group>"; };
+		F8D922A92A0380DE00477D2A /* PostphonedNotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostphonedNotificationsView.swift; sourceTree = "<group>"; };
 		F8D922B32A06C77A00477D2A /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		F8D922B62A06CBBE00477D2A /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
+		F8D95A0D2A4BA6A000DA73AA /* Waterly Watch AppRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Waterly Watch AppRelease.entitlements"; sourceTree = "<group>"; };
+		F8D95A0E2A4CA9DD00DA73AA /* SensorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorData.swift; sourceTree = "<group>"; };
+		F8D95A102A4CB21A00DA73AA /* SensorDataRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorDataRecorder.swift; sourceTree = "<group>"; };
+		F8D95A182A4D197300DA73AA /* DrinkActivityClassifier.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; name = DrinkActivityClassifier.mlpackage; path = ../../DrinkActivityClassifier.mlpackage; sourceTree = "<group>"; };
+		F8D95A1C2A4D911500DA73AA /* DrinkActivityClassifier2.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; name = DrinkActivityClassifier2.mlpackage; path = ../../DrinkActivityClassifier2.mlpackage; sourceTree = "<group>"; };
+		F8D95A1E2A4D956800DA73AA /* DrinkActivityClassifier3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = DrinkActivityClassifier3.mlmodel; path = ../../DrinkActivityClassifier3.mlmodel; sourceTree = "<group>"; };
+		F8D95A202A4E5F9C00DA73AA /* DrinkActivityDetectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkActivityDetectedView.swift; sourceTree = "<group>"; };
+		F8DD722C2A34EF5C00C7B577 /* ScheduleSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleSettingsView.swift; sourceTree = "<group>"; };
+		F8DD72302A350E1400C7B577 /* TimeInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInput.swift; sourceTree = "<group>"; };
 		F8E4E73D29DB6D5C004BB0A4 /* ConfirmAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmAccountView.swift; sourceTree = "<group>"; };
 		F8E4E73F29DC0C31004BB0A4 /* HomeStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStatsView.swift; sourceTree = "<group>"; };
 		F8E4E74129DC0C44004BB0A4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -268,6 +358,8 @@
 		F81A74FC2927666200B28656 = {
 			isa = PBXGroup;
 			children = (
+				F8D95A0D2A4BA6A000DA73AA /* Waterly Watch AppRelease.entitlements */,
+				F820C8112A3FA93D0058F676 /* Waterly-Watch-App-Info.plist */,
 				F853AAC02A14B1360017C24F /* Waterly Watch App.entitlements */,
 				F81A75072927666300B28656 /* Waterly */,
 				F81A75182927666300B28656 /* WaterlyTests */,
@@ -276,6 +368,7 @@
 				F81A75402927666400B28656 /* WaterlyWatchAppTests */,
 				F81A754A2927666400B28656 /* WaterlyWatchAppUITests */,
 				F81A75062927666300B28656 /* Products */,
+				F83809D72A427996001D90CB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -332,14 +425,19 @@
 		F81A752F2927666400B28656 /* WaterlyWatchApp */ = {
 			isa = PBXGroup;
 			children = (
+				F82EE10B2A560933004B4B2F /* converter */,
+				F81A75362927666400B28656 /* Preview Content */,
 				F8D922B52A06CBA500477D2A /* ui */,
 				F8D922B22A06C47A00477D2A /* screen */,
-				F81A75302927666400B28656 /* WaterlyWatchApp.swift */,
-				F81A75342927666400B28656 /* Assets.xcassets */,
-				F81A75362927666400B28656 /* Preview Content */,
+				F82EE1092A560717004B4B2F /* sensor */,
+				F82EE10A2A560753004B4B2F /* connectivity */,
+				F8AF9D302A3F9E8200FCDB66 /* NotificationController.swift */,
 				F8D922B32A06C77A00477D2A /* Router.swift */,
-				F8F5DBD42A142061005951AA /* DataTransferSender.swift */,
-				F812FBA42A14FA5D00A00974 /* WCSessionManager.swift */,
+				F81A75302927666400B28656 /* WaterlyWatchApp.swift */,
+				F8D95A182A4D197300DA73AA /* DrinkActivityClassifier.mlpackage */,
+				F8D95A1C2A4D911500DA73AA /* DrinkActivityClassifier2.mlpackage */,
+				F8D95A1E2A4D956800DA73AA /* DrinkActivityClassifier3.mlmodel */,
+				F81A75342927666400B28656 /* Assets.xcassets */,
 			);
 			path = WaterlyWatchApp;
 			sourceTree = "<group>";
@@ -347,7 +445,6 @@
 		F81A75362927666400B28656 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				F81A75372927666400B28656 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -369,10 +466,36 @@
 			path = WaterlyWatchAppUITests;
 			sourceTree = "<group>";
 		};
+		F81AD8772A37972300341030 /* manager */ = {
+			isa = PBXGroup;
+			children = (
+				F887DC382A2A87650024278E /* UserAccountTokenManager.swift */,
+				F81AD8752A37971A00341030 /* UserSettingsManager.swift */,
+				F8F5DBD82A14313C005951AA /* WCSessionManager.swift */,
+			);
+			path = manager;
+			sourceTree = "<group>";
+		};
+		F81AD8842A3945F700341030 /* dto */ = {
+			isa = PBXGroup;
+			children = (
+				F82EE1022A50A5B0004B4B2F /* UserInfoDto.swift */,
+				F81AD8822A3945DA00341030 /* UserSettingsDto.swift */,
+				F8AF9D282A3E74A000FCDB66 /* ConsumptionsDto.swift */,
+				F8BEBD8E2A4B140D00610AB9 /* ConsumptionRequest.swift */,
+				F83809D52A412570001D90CB /* ConsumptionUpdateRequest.swift */,
+				F8BEBD812A482F8400610AB9 /* IntervalConsumptionsDto.swift */,
+			);
+			path = dto;
+			sourceTree = "<group>";
+		};
 		F81EE4072A1E915E00534B83 /* service */ = {
 			isa = PBXGroup;
 			children = (
 				F8C40BA92A1D70EE0070271A /* AuthenticationService.swift */,
+				F887DC342A2970D80024278E /* UserSettingsService.swift */,
+				F8AF9D262A3E66A800FCDB66 /* ConsumptionService.swift */,
+				F82EE1002A50A4B5004B4B2F /* UserInfoService.swift */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -408,8 +531,17 @@
 				F81EE4192A220A9F00534B83 /* UserAccount.swift */,
 				F81EE4212A2223D300534B83 /* UserAccountConfirmation.swift */,
 				F81EE41F2A22101800534B83 /* UserAccountType.swift */,
-				F81EE41B2A220F5D00534B83 /* UserInfo.swift */,
 				F81EE4032A1E323C00534B83 /* UserAccountToken.swift */,
+				F887DC362A2971A10024278E /* UserSettings.swift */,
+				F81EE41B2A220F5D00534B83 /* UserInfo.swift */,
+				F81AD8782A37A0A600341030 /* ScheduleSettings.swift */,
+				F81AD87A2A37A0C900341030 /* TimeRange.swift */,
+				F81AD8802A38D6AA00341030 /* Time.swift */,
+				F8AF9D202A3E64D100FCDB66 /* Consumption.swift */,
+				F8BEBD7F2A47CB5C00610AB9 /* IntervalConsumption.swift */,
+				F8AF9D222A3E653C00FCDB66 /* ConsumptionStatuts.swift */,
+				F8AF9D242A3E655100FCDB66 /* ConsumptionType.swift */,
+				F8AF9D2A2A3F0A0400FCDB66 /* ConsumptionInfo.swift */,
 			);
 			path = entity;
 			sourceTree = "<group>";
@@ -417,17 +549,20 @@
 		F81EE4112A2115E300534B83 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				F81EE42B2A251F4F00534B83 /* util */,
+				F82EE0FB2A50421A004B4B2F /* converter */,
+				F8BEBD7C2A47CA7200610AB9 /* extension */,
+				F81AD8772A37972300341030 /* manager */,
 				F81EE40F2A2115A200534B83 /* validator */,
 				F81EE4072A1E915E00534B83 /* service */,
+				F81AD8842A3945F700341030 /* dto */,
 				F81EE4102A2115C400534B83 /* entity */,
 				F86C958129D34FF000FC01DB /* ui */,
 				F827DACA29C1000200D2F79D /* screen */,
 				F8138B9B2A0EECA900CCF888 /* GoogleAuthentication.swift */,
 				F8C608202A0AF01D0014F008 /* NotificationScheduler.swift */,
 				F8B07A4A29D20D1600756055 /* Router.swift */,
-				F8F5DBD82A14313C005951AA /* WCSessionManager.swift */,
 				F81A75082927666300B28656 /* WaterlyApp.swift */,
+				F8BEBD8C2A4A490A00610AB9 /* AppDelegate.swift */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -444,23 +579,17 @@
 			path = authentication;
 			sourceTree = "<group>";
 		};
-		F81EE42B2A251F4F00534B83 /* util */ = {
-			isa = PBXGroup;
-			children = (
-				F81EE42C2A251FC200534B83 /* DateStringConverter.swift */,
-			);
-			path = util;
-			sourceTree = "<group>";
-		};
 		F827DACA29C1000200D2F79D /* screen */ = {
 			isa = PBXGroup;
 			children = (
 				F81EE4162A22093B00534B83 /* authentication */,
-				F81A750A2927666300B28656 /* SplashScreenView.swift */,
+				F82EE1062A50BB97004B4B2F /* consumption */,
 				F8E4E73F29DC0C31004BB0A4 /* HomeStatsView.swift */,
+				F82EE0FE2A50A438004B4B2F /* UserProfileView.swift */,
+				F82EE1072A50BBD5004B4B2F /* EditUserProfileView.swift */,
 				F8E4E74129DC0C44004BB0A4 /* SettingsView.swift */,
-				F8D922A72A031BF000477D2A /* ConsumptionStatisticsView.swift */,
-				F8D922A92A0380DE00477D2A /* UncertainGesturesView.swift */,
+				F8DD722C2A34EF5C00C7B577 /* ScheduleSettingsView.swift */,
+				F81A750A2927666300B28656 /* SplashScreenView.swift */,
 			);
 			path = screen;
 			sourceTree = "<group>";
@@ -477,6 +606,52 @@
 			path = button;
 			sourceTree = "<group>";
 		};
+		F82EE0FB2A50421A004B4B2F /* converter */ = {
+			isa = PBXGroup;
+			children = (
+				F82EE0FC2A50422A004B4B2F /* DateTimeConverter.swift */,
+			);
+			path = converter;
+			sourceTree = "<group>";
+		};
+		F82EE1062A50BB97004B4B2F /* consumption */ = {
+			isa = PBXGroup;
+			children = (
+				F8BEBD902A4B5EB800610AB9 /* AddConsumptionView.swift */,
+				F8D922A72A031BF000477D2A /* ConsumptionStatisticsView.swift */,
+				F8BEBD882A4A2F8C00610AB9 /* ConsumptionNotificationView.swift */,
+				F8D922A92A0380DE00477D2A /* PostphonedNotificationsView.swift */,
+				F82EE0F92A4FAAAD004B4B2F /* PostphonedNotificationView.swift */,
+			);
+			path = consumption;
+			sourceTree = "<group>";
+		};
+		F82EE1092A560717004B4B2F /* sensor */ = {
+			isa = PBXGroup;
+			children = (
+				F8D95A0E2A4CA9DD00DA73AA /* SensorData.swift */,
+				F8D95A102A4CB21A00DA73AA /* SensorDataRecorder.swift */,
+			);
+			path = sensor;
+			sourceTree = "<group>";
+		};
+		F82EE10A2A560753004B4B2F /* connectivity */ = {
+			isa = PBXGroup;
+			children = (
+				F8F5DBD42A142061005951AA /* DataTransferSender.swift */,
+				F812FBA42A14FA5D00A00974 /* WCSessionManager.swift */,
+			);
+			path = connectivity;
+			sourceTree = "<group>";
+		};
+		F82EE10B2A560933004B4B2F /* converter */ = {
+			isa = PBXGroup;
+			children = (
+				F820C8162A40E8CF0058F676 /* TimeIntervalConverter.swift */,
+			);
+			path = converter;
+			sourceTree = "<group>";
+		};
 		F83776CF29E31F140024D972 /* rectangle */ = {
 			isa = PBXGroup;
 			children = (
@@ -485,6 +660,13 @@
 				F875478329E326FD003CA751 /* RectangleCorner.swift */,
 			);
 			path = rectangle;
+			sourceTree = "<group>";
+		};
+		F83809D72A427996001D90CB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		F86C958129D34FF000FC01DB /* ui */ = {
@@ -500,14 +682,29 @@
 				F8D922A12A01295A00477D2A /* CaptionBullet.swift */,
 				F8D922A32A012D2700477D2A /* CaptionBulletPanel.swift */,
 				F81EE4292A22785B00534B83 /* OutlinedDatePicker.swift */,
+				F8BEBD862A48526900610AB9 /* OutlinedGenderPicker.swift */,
+				F8BEBD922A4B618500610AB9 /* OutlinedConsumptionTypePicker.swift */,
+				F82EE1042A50B2A1004B4B2F /* OutlinedPreviewTextField.swift */,
 			);
 			path = ui;
+			sourceTree = "<group>";
+		};
+		F8BEBD7C2A47CA7200610AB9 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				F8BEBD7D2A47CAB500610AB9 /* DateExtension.swift */,
+				F8BEBD832A48324E00610AB9 /* FloatExtension.swift */,
+			);
+			path = extension;
 			sourceTree = "<group>";
 		};
 		F8D9229E2A00879B00477D2A /* input */ = {
 			isa = PBXGroup;
 			children = (
 				F8D9229F2A0087D200477D2A /* IncrementalInput.swift */,
+				F8DD72302A350E1400C7B577 /* TimeInput.swift */,
+				F8AF9D1E2A3C88D600FCDB66 /* ToggleInput.swift */,
+				F8BEBD8A2A4A424B00610AB9 /* OutlinedIncrementalInput.swift */,
 			);
 			path = input;
 			sourceTree = "<group>";
@@ -515,8 +712,11 @@
 		F8D922B22A06C47A00477D2A /* screen */ = {
 			isa = PBXGroup;
 			children = (
-				F81A75322927666400B28656 /* ActionNotificationView.swift */,
+				F81A75372927666400B28656 /* Preview Assets.xcassets */,
 				F837877D29FBF43F00CD0728 /* ConsumptionInputView.swift */,
+				F8D95A202A4E5F9C00DA73AA /* DrinkActivityDetectedView.swift */,
+				F81A75322927666400B28656 /* DrinkNotificationView.swift */,
+				F820C8142A40CAF20058F676 /* MealNotificationView.swift */,
 			);
 			path = screen;
 			sourceTree = "<group>";
@@ -544,7 +744,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				F81A752E2927666400B28656 /* PBXTargetDependency */,
+				F83809E02A427CF1001D90CB /* PBXTargetDependency */,
 			);
 			name = Waterly;
 			packageProductDependencies = (
@@ -652,7 +852,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1410;
-				LastUpgradeCheck = 1410;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					F81A75042927666300B28656 = {
 						CreatedOnToolsVersion = 14.1;
@@ -759,53 +959,88 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8C608212A0AF01D0014F008 /* NotificationScheduler.swift in Sources */,
+				F8BEBD7E2A47CAB500610AB9 /* DateExtension.swift in Sources */,
 				F813B4A329ED8639002D1954 /* IconButton.swift in Sources */,
-				F8D922AA2A0380DE00477D2A /* UncertainGesturesView.swift in Sources */,
+				F8D922AA2A0380DE00477D2A /* PostphonedNotificationsView.swift in Sources */,
+				F8BEBD912A4B5EB800610AB9 /* AddConsumptionView.swift in Sources */,
+				F81AD8762A37971A00341030 /* UserSettingsManager.swift in Sources */,
 				F8D922A42A012D2700477D2A /* CaptionBulletPanel.swift in Sources */,
+				F82EE0FD2A50422A004B4B2F /* DateTimeConverter.swift in Sources */,
+				F8AF9D212A3E64D100FCDB66 /* Consumption.swift in Sources */,
+				F82EE0FA2A4FAAAE004B4B2F /* PostphonedNotificationView.swift in Sources */,
 				F8F9712F29FFF7C000AB22F6 /* DropdownButton.swift in Sources */,
 				F8B07A4D29D20EB000756055 /* SignInWithEmailView.swift in Sources */,
 				F81EE4132A21167C00534B83 /* EmailValidator.swift in Sources */,
 				F8B07A4B29D20D1600756055 /* Router.swift in Sources */,
 				F8F17D0329CBACD5005D891C /* SignUpWithEmailView.swift in Sources */,
+				F887DC352A2970D80024278E /* UserSettingsService.swift in Sources */,
+				F83809D62A412570001D90CB /* ConsumptionUpdateRequest.swift in Sources */,
 				F8D922A22A01295A00477D2A /* CaptionBullet.swift in Sources */,
 				F8D922A62A03118700477D2A /* RoundedCornersButton.swift in Sources */,
 				F8D922A02A0087D200477D2A /* IncrementalInput.swift in Sources */,
 				F8E4E74029DC0C31004BB0A4 /* HomeStatsView.swift in Sources */,
 				F82BBDAF29BE593F002933B7 /* UnauthenticatedView.swift in Sources */,
 				F81EE41E2A220FBB00534B83 /* GenderType.swift in Sources */,
+				F8BEBD892A4A2F8C00610AB9 /* ConsumptionNotificationView.swift in Sources */,
+				F887DC372A2971A10024278E /* UserSettings.swift in Sources */,
+				F8BEBD8B2A4A424B00610AB9 /* OutlinedIncrementalInput.swift in Sources */,
 				F81EE4202A22101800534B83 /* UserAccountType.swift in Sources */,
 				F8B07A5029D2111700756055 /* SignUpUserDetailsView.swift in Sources */,
+				F8BEBD932A4B618500610AB9 /* OutlinedConsumptionTypePicker.swift in Sources */,
+				F8BEBD8F2A4B140D00610AB9 /* ConsumptionRequest.swift in Sources */,
 				F8E4E73E29DB6D5C004BB0A4 /* ConfirmAccountView.swift in Sources */,
-				F81EE42D2A251FC200534B83 /* DateStringConverter.swift in Sources */,
+				F8AF9D1F2A3C88D600FCDB66 /* ToggleInput.swift in Sources */,
 				F81EE40A2A21048500534B83 /* SpinningCircle.swift in Sources */,
 				F8138B9C2A0EECA900CCF888 /* GoogleAuthentication.swift in Sources */,
 				F875478629E36706003CA751 /* ShapeExtension.swift in Sources */,
 				F8E4E74229DC0C44004BB0A4 /* SettingsView.swift in Sources */,
 				F8F5DBD92A14313C005951AA /* WCSessionManager.swift in Sources */,
+				F81AD8832A3945DA00341030 /* UserSettingsDto.swift in Sources */,
+				F82EE1052A50B2A1004B4B2F /* OutlinedPreviewTextField.swift in Sources */,
 				F82BBDB329BE757F002933B7 /* RoundedButtonStyle.swift in Sources */,
+				F8BEBD822A482F8400610AB9 /* IntervalConsumptionsDto.swift in Sources */,
+				F8BEBD872A48526900610AB9 /* OutlinedGenderPicker.swift in Sources */,
 				F81EE4282A2255A200534B83 /* WeightHeightValidator.swift in Sources */,
 				F8C40BAA2A1D70EE0070271A /* AuthenticationService.swift in Sources */,
 				F83776CE29E31E920024D972 /* RoundedCornersRectangle.swift in Sources */,
+				F8BEBD8D2A4A490A00610AB9 /* AppDelegate.swift in Sources */,
+				F81AD8792A37A0A600341030 /* ScheduleSettings.swift in Sources */,
+				F81AD87B2A37A0C900341030 /* TimeRange.swift in Sources */,
+				F8AF9D272A3E66A800FCDB66 /* ConsumptionService.swift in Sources */,
 				F81EE4262A22554600534B83 /* DateOfBirthValidator.swift in Sources */,
+				F8DD72312A350E1400C7B577 /* TimeInput.swift in Sources */,
+				F81AD8812A38D6AA00341030 /* Time.swift in Sources */,
 				F81EE41A2A220A9F00534B83 /* UserAccount.swift in Sources */,
+				F8BEBD802A47CB5C00610AB9 /* IntervalConsumption.swift in Sources */,
 				F8D922A82A031BF000477D2A /* ConsumptionStatisticsView.swift in Sources */,
 				F81A750B2927666300B28656 /* SplashScreenView.swift in Sources */,
 				F813B4AC29EDD37E002D1954 /* RoundedProgressView.swift in Sources */,
+				F82EE1082A50BBD5004B4B2F /* EditUserProfileView.swift in Sources */,
 				F81EE4062A1E8CBB00534B83 /* ErrorAlert.swift in Sources */,
+				F8AF9D292A3E74A000FCDB66 /* ConsumptionsDto.swift in Sources */,
+				F887DC392A2A87650024278E /* UserAccountTokenManager.swift in Sources */,
 				F86C958329D3502000FC01DB /* OutlinedTextFieldStyle.swift in Sources */,
 				F81EE40E2A21159C00534B83 /* Validator.swift in Sources */,
 				F81EE4242A22510500534B83 /* NameValidator.swift in Sources */,
 				F82BBDB629BE78AB002933B7 /* RoundedButton.swift in Sources */,
+				F82EE1012A50A4B5004B4B2F /* UserInfoService.swift in Sources */,
+				F8AF9D252A3E655100FCDB66 /* ConsumptionType.swift in Sources */,
 				F81A75092927666300B28656 /* WaterlyApp.swift in Sources */,
 				F875478429E326FD003CA751 /* RectangleCorner.swift in Sources */,
 				F81EE4182A22098200534B83 /* ConfirmCodeValidator.swift in Sources */,
 				F81EE4222A2223D300534B83 /* UserAccountConfirmation.swift in Sources */,
 				F81EE42A2A22785B00534B83 /* OutlinedDatePicker.swift in Sources */,
 				F81EE41C2A220F5D00534B83 /* UserInfo.swift in Sources */,
+				F8BEBD842A48324E00610AB9 /* FloatExtension.swift in Sources */,
 				F81EE4152A21173200534B83 /* PasswordValidator.swift in Sources */,
 				F82BBDB129BE60B9002933B7 /* WaveEdgedRectangle.swift in Sources */,
+				F8AF9D2B2A3F0A0400FCDB66 /* ConsumptionInfo.swift in Sources */,
 				F81EE4042A1E323C00534B83 /* UserAccountToken.swift in Sources */,
+				F82EE1032A50A5B0004B4B2F /* UserInfoDto.swift in Sources */,
+				F82EE0FF2A50A438004B4B2F /* UserProfileView.swift in Sources */,
 				F81EE40C2A21070700534B83 /* LoadingView.swift in Sources */,
+				F8AF9D232A3E653C00FCDB66 /* ConsumptionStatuts.swift in Sources */,
+				F8DD722D2A34EF5C00C7B577 /* ScheduleSettingsView.swift in Sources */,
 				F813B4A729EDC3EE002D1954 /* RoundedProgressViewStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -831,13 +1066,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F820C8152A40CAF20058F676 /* MealNotificationView.swift in Sources */,
+				F8D95A112A4CB21A00DA73AA /* SensorDataRecorder.swift in Sources */,
 				F8F5DBD52A142061005951AA /* DataTransferSender.swift in Sources */,
+				F8D95A1F2A4D956800DA73AA /* DrinkActivityClassifier3.mlmodel in Sources */,
 				F8D922B42A06C77A00477D2A /* Router.swift in Sources */,
-				F81A75332927666400B28656 /* ActionNotificationView.swift in Sources */,
+				F8AF9D312A3F9E8200FCDB66 /* NotificationController.swift in Sources */,
+				F81A75332927666400B28656 /* DrinkNotificationView.swift in Sources */,
 				F837877E29FBF43F00CD0728 /* ConsumptionInputView.swift in Sources */,
+				F820C8172A40E8CF0058F676 /* TimeIntervalConverter.swift in Sources */,
+				F8D95A0F2A4CA9DD00DA73AA /* SensorData.swift in Sources */,
 				F8D922B72A06CBBE00477D2A /* KeyboardView.swift in Sources */,
 				F81A75312927666400B28656 /* WaterlyWatchApp.swift in Sources */,
+				F8D95A212A4E5F9C00DA73AA /* DrinkActivityDetectedView.swift in Sources */,
+				F8D95A192A4D197300DA73AA /* DrinkActivityClassifier.mlpackage in Sources */,
 				F812FBA52A14FA5D00A00974 /* WCSessionManager.swift in Sources */,
+				F8D95A1D2A4D911500DA73AA /* DrinkActivityClassifier2.mlpackage in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -871,11 +1115,6 @@
 			target = F81A75042927666300B28656 /* Waterly */;
 			targetProxy = F81A75202927666400B28656 /* PBXContainerItemProxy */;
 		};
-		F81A752E2927666400B28656 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F81A752A2927666400B28656 /* Waterly Watch App */;
-			targetProxy = F81A752D2927666400B28656 /* PBXContainerItemProxy */;
-		};
 		F81A753F2927666400B28656 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F81A752A2927666400B28656 /* Waterly Watch App */;
@@ -885,6 +1124,11 @@
 			isa = PBXTargetDependency;
 			target = F81A752A2927666400B28656 /* Waterly Watch App */;
 			targetProxy = F81A75482927666400B28656 /* PBXContainerItemProxy */;
+		};
+		F83809E02A427CF1001D90CB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F81A752A2927666400B28656 /* Waterly Watch App */;
+			targetProxy = F83809DF2A427CF1001D90CB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -922,6 +1166,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -982,6 +1227,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1014,6 +1260,7 @@
 				DEVELOPMENT_TEAM = HCBJP99W8D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Waterly-Watch-App-Info.plist";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = me.stefan923.WaterlyApp;
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
@@ -1038,13 +1285,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Waterly Watch App.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Waterly Watch AppRelease.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WaterlyWatchApp/Preview Content\"";
 				DEVELOPMENT_TEAM = HCBJP99W8D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Waterly-Watch-App-Info.plist";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = me.stefan923.WaterlyApp;
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;

@@ -7,7 +7,5 @@ import java.math.BigInteger;
 import java.util.Optional;
 
 public interface UserInfoRepository extends MongoRepository<UserInfo, BigInteger> {
-
     Optional<UserInfo> findByUserId(String userId);
-
 }

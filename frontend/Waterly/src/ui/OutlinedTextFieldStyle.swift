@@ -28,21 +28,19 @@ struct OutlinedTextFieldStyle: TextFieldStyle {
                 .background() {
                     if isWrongValue.wrappedValue {
                         RoundedCornersRectangle(radius: self.radius, corners: self.corners)
-                            .fill(Color("TextFieldFillColor"),
-                                  strokeBorder: Color("ErrorRedColor"),
-                                  lineWidth: 1.0)
+                            .fill(.white.shadow(.drop(radius: 2)))
+                            .frame(width: geometry.size.width, height: geometry.size.height)
+                        RoundedCornersRectangle(radius: self.radius, corners: self.corners)
+                            .fill(Color("ErrorRedColor1").shadow(.drop(radius: 2)))
                             .frame(width: geometry.size.width, height: geometry.size.height)
                     } else {
                         RoundedCornersRectangle(radius: self.radius, corners: self.corners)
-                            .fill(Color("TextFieldFillColor"),
-                                  strokeBorder: Color("TextFieldEdgeColor"),
-                                  lineWidth: 1.0)
+                            .fill(.white.shadow(.drop(radius: 2)))
                             .frame(width: geometry.size.width, height: geometry.size.height)
                     }
                 }
                 .frame(height: geometry.size.height)
         }
-        .zIndex(self.isWrongValue.wrappedValue ? 1 : 0)
     }
 }
 

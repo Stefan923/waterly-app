@@ -20,9 +20,9 @@ struct RoundedProgressView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                RoundedCornersRectangle(radius: 0.35, corners: [.topLeft, .topRight, .bottomLeft, .bottomRight])
-                    .fill(.white)
-                    .opacity(0.20)
+                RoundedCornersRectangle(radius: 0.23, corners: [.topLeft, .topRight, .bottomLeft, .bottomRight])
+                    .fill(.white.shadow(.drop(radius: 2)))
+                    .opacity(0.12)
                     .frame(width: geometry.size.width, height: 70.0)
                 
                 VStack(spacing: 0) {
@@ -40,7 +40,7 @@ struct RoundedProgressView: View {
                     ProgressView(value: self.value)
                         .progressViewStyle(RoundedProgressViewStyle(stroke: Color("ProgressViewStrokeColor"), fill: Color("PrimaryColor")))
                 }
-                .padding([.horizontal], 12)
+                .padding([.horizontal], 16)
             }
         }
         .frame(height: 70.0)
@@ -53,8 +53,13 @@ struct RoundedProgressView_Previews: PreviewProvider {
             Color("PrimaryColor")
                 .ignoresSafeArea(.all)
             
-            RoundedProgressView(title: "Daily water consumption target", value: 1.0)
-                .padding([.horizontal], 32)
+            VStack {
+                RoundedProgressView(title: "Daily water consumption target", value: 1.0)
+                    .padding([.horizontal], 38)
+                
+                RoundedProgressView(title: "Daily calories consumption target", value: 0.5)
+                    .padding([.horizontal], 38)
+            }
         }
     }
 }

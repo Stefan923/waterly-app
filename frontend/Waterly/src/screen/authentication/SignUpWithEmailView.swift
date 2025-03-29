@@ -22,9 +22,15 @@ struct SignUpWithEmailView: View {
     @State private var password = ""
     @State private var confirmedPassword = ""
     
+    @State private var isEmailUsed = false
     @State private var isEmailInvalid = false
     @State private var isPasswordInvalid = false
     @State private var isConfirmedPasswordInvalid = false
+    
+    @State private var isLoading = false
+    @State private var errorAlert: ErrorAlert?
+    
+    @ObservedObject var viewModel = AuthenticationService()
     
     @FocusState private var focusedField: Field?
     
@@ -73,6 +79,7 @@ struct SignUpWithEmailView: View {
             }
         }
         .onChange(of: email) { email in
+            self.isEmailUsed = false
             self.isEmailInvalid = false
         }
         .onChange(of: password) { password in
@@ -110,9 +117,12 @@ struct SignUpWithEmailView: View {
                 .padding([.bottom], 16.0)
             
             TextField(text: $email, prompt: Text("E-mail").foregroundColor(Color("TextFieldPlaceholderColor"))) {
-                Text("Username")
+                Text("E-mail")
             }
-            .textFieldStyle(OutlinedTextFieldStyle(corners: [.topLeft, .topRight], isWrongValue: $isEmailInvalid))
+            .textFieldStyle(OutlinedTextFieldStyle(corners: [.topLeft, .topRight], isWrongValue: Binding.constant(isEmailInvalid || isEmailUsed)))
+            .keyboardType(.emailAddress)
+            .textContentType(.username)
+            .textInputAutocapitalization(.never)
             .focused($focusedField, equals: .email)
             .padding([.leading, .trailing], 6.0)
             .frame(height: 60.0)
@@ -121,6 +131,7 @@ struct SignUpWithEmailView: View {
                 Text("Password")
             }
             .textFieldStyle(OutlinedTextFieldStyle(corners: [], isWrongValue: $isPasswordInvalid))
+            .textContentType(.password)
             .focused($focusedField, equals: .password)
             .padding([.leading, .trailing], 6.0)
             .frame(height: 60.0)
@@ -129,6 +140,7 @@ struct SignUpWithEmailView: View {
                 Text("Password")
             }
             .textFieldStyle(OutlinedTextFieldStyle(corners: [.bottomLeft, .bottomRight], isWrongValue: $isConfirmedPasswordInvalid))
+            .textContentType(.password)
             .focused($focusedField, equals: .confirmedPassword)
             .padding([.leading, .trailing], 6.0)
             .frame(height: 60.0)
@@ -140,6 +152,18 @@ struct SignUpWithEmailView: View {
                         .frame(width: 16, height: 16)
                     
                     Text("Email should be like: email@example.com")
+                        .lineLimit(nil)
+                        .foregroundColor(Color("ErrorRedColor"))
+                        .font(.system(size: 18).weight(.regular))
+                }
+                .padding([.top], 16.0)
+            } else if isEmailUsed {
+                HStack {
+                    Image("error-icon")
+                        .resizable()
+                        .frame(width: 16, height: 16)
+                    
+                    Text("This email address is already used.")
                         .lineLimit(nil)
                         .foregroundColor(Color("ErrorRedColor"))
                         .font(.system(size: 18).weight(.regular))
@@ -197,20 +221,23 @@ struct SignUpWithEmailView: View {
         }
         
         if isUserAccountValid {
-            self.userAccount.setEmail(self.email)
-            self.userAccount.setPassword(self.password)
-            router.push("SignUpUserDetailsView")
+            self.userAccount.email = self.email
+            self.userAccount.password = self.password
+            self.viewModel.validateEmail(self.email, self.validateSuccess, self.validateFailure)
         }
     }
     
-    private func validateFailure(_ statusCode: Int, _ message: String) -> Void {
-        self.errorAlert = ErrorAlert(title: "Error", message: "Couldn't create your account: " + message)
-        isLoading.toggle()
+    private func validateFailure(_ statusCode: Int) -> Void {
+        self.isEmailUsed = true
+        self.isLoading.toggle()
     }
 
     private func validateSuccess() -> Void {
-        router.push("ConfirmAccountView")
-        isLoading.toggle()
+        DispatchQueue.main.async {
+            router.push("SignUpUserDetailsView")
+        }
+        
+        self.isLoading.toggle()
     }
 }
 

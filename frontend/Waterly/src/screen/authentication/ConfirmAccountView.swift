@@ -22,6 +22,7 @@ struct ConfirmAccountView: View {
     @FocusState private var focusedField: Field?
     
     @ObservedObject var viewModel = AuthenticationService()
+    var userSettingsService = UserSettingsService()
     
     @Binding var isAuthenticated : Bool
     
@@ -167,7 +168,18 @@ struct ConfirmAccountView: View {
     
     private func confirmSuccess() -> Void {
         isAuthenticated = true
-        router.clear()
+        self.userSettingsService.getUserSettingsByUserId(completion: { result in
+            switch result {
+            case .success(let settings):
+                UserSettingsManager.shared.setUserSettings(settings)
+            case .failure(let error):
+                self.errorAlert = ErrorAlert(title: "Error", message: "\(error)")
+            }
+        })
+        
+        DispatchQueue.main.async {
+            router.clear()
+        }
         
         isLoading.toggle()
     }

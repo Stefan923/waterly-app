@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum UserAccountType {
+enum UserAccountType: String, Codable {
     case credentials
     case google
     case appleID

@@ -20,7 +20,8 @@ struct SignInWithEmailView: View {
     @State private var isLoading = false
     @State private var errorAlert: ErrorAlert?
     
-    @ObservedObject var viewModel = AuthenticationService()
+    @ObservedObject var authenticationService = AuthenticationService()
+    var userSettingsService = UserSettingsService()
     
     @FocusState private var focusedField: Field?
     
@@ -42,43 +43,7 @@ struct SignInWithEmailView: View {
                     .frame(height: geometry.size.height * 1.05)
                     
                     VStack {
-                        VStack(spacing: 0) {
-                            Text("Sign in using your email:")
-                                .foregroundColor(Color("TextFieldFontColor"))
-                                .font(.system(size: 20).weight(.semibold))
-                                .padding([.bottom], 16.0)
-                            
-                            TextField(text: $email, prompt: Text("E-mail").foregroundColor(Color("TextFieldPlaceholderColor"))) {
-                                Text("E-mail")
-                            }
-                            .textFieldStyle(OutlinedTextFieldStyle(corners: [.topLeft, .topRight], isWrongValue: $wrongCredentials))
-                            .focused($focusedField, equals: .email)
-                            .padding([.leading, .trailing], 6.0)
-                            .frame(height: 60.0)
-                            
-                            SecureField(text: $password, prompt: Text("Password").foregroundColor(Color("TextFieldPlaceholderColor"))) {
-                                Text("Password")
-                            }
-                            .textFieldStyle(OutlinedTextFieldStyle(corners: [.bottomLeft, .bottomRight], isWrongValue: $wrongCredentials))
-                            .focused($focusedField, equals: .password)
-                            .padding([.leading, .trailing], 6.0)
-                            .frame(height: 60.0)
-                            
-                            if wrongCredentials {
-                                HStack {
-                                    Image("error-icon")
-                                        .resizable()
-                                        .frame(width: 16, height: 16)
-                                    
-                                    Text("Wrong username or password!")
-                                        .foregroundColor(Color("ErrorRedColor"))
-                                        .font(.system(size: 18).weight(.regular))
-                                }
-                                .padding([.top], 16.0)
-                            }
-                        }
-                        .frame(alignment: .top)
-                        .padding([.leading, .trailing], 24.0)
+                        self.createFormView()
                         
                         Spacer()
                         
@@ -88,7 +53,7 @@ struct SignInWithEmailView: View {
                                           foregroundColor: .white,
                                           maxWidth: 140) {
                                 isLoading.toggle()
-                                viewModel.loginUsingCredentials(email, password, self.signInSuccess, self.signInFailure)
+                                authenticationService.loginUsingCredentials(email, password, self.signInSuccess, self.signInFailure)
                             }
                             
                             RoundedButton(title: "Cancel",
@@ -106,6 +71,7 @@ struct SignInWithEmailView: View {
                 
                 if isLoading {
                     Color("LoadingBackgroundColor").ignoresSafeArea()
+                    ProgressView().colorScheme(.light)
                 }
             }
         }
@@ -136,6 +102,50 @@ struct SignInWithEmailView: View {
         .ignoresSafeArea(.keyboard)
     }
     
+    private func createFormView() -> some View {
+        VStack(spacing: 0) {
+            Text("Sign in using your email:")
+                .foregroundColor(Color("TextFieldFontColor"))
+                .font(.system(size: 20).weight(.semibold))
+                .padding([.bottom], 16.0)
+            
+            TextField(text: $email, prompt: Text("E-mail").foregroundColor(Color("TextFieldPlaceholderColor"))) {
+                Text("E-mail")
+            }
+            .textFieldStyle(OutlinedTextFieldStyle(corners: [.topLeft, .topRight], isWrongValue: $wrongCredentials))
+            .keyboardType(.emailAddress)
+            .textContentType(.username)
+            .textInputAutocapitalization(.never)
+            .focused($focusedField, equals: .email)
+            .padding([.leading, .trailing], 6.0)
+            .frame(height: 60.0)
+            
+            SecureField(text: $password, prompt: Text("Password").foregroundColor(Color("TextFieldPlaceholderColor"))) {
+                Text("Password")
+            }
+            .textFieldStyle(OutlinedTextFieldStyle(corners: [.bottomLeft, .bottomRight], isWrongValue: $wrongCredentials))
+            .textContentType(.password)
+            .focused($focusedField, equals: .password)
+            .padding([.leading, .trailing], 6.0)
+            .frame(height: 60.0)
+            
+            if wrongCredentials {
+                HStack {
+                    Image("error-icon")
+                        .resizable()
+                        .frame(width: 16, height: 16)
+                    
+                    Text("Wrong username or password!")
+                        .foregroundColor(Color("ErrorRedColor"))
+                        .font(.system(size: 18).weight(.regular))
+                }
+                .padding([.top], 16.0)
+            }
+        }
+        .frame(alignment: .top)
+        .padding([.leading, .trailing], 24.0)
+    }
+    
     private func signInFailure(statusCode: Int) -> Void {
         switch statusCode {
         case 401:
@@ -143,7 +153,9 @@ struct SignInWithEmailView: View {
             break
         case 403:
             emailBinding = email
-            router.push("ConfirmAccountView")
+            DispatchQueue.main.async {
+                router.push("ConfirmAccountView")
+            }
             break
         default:
             self.errorAlert = ErrorAlert(title: "Error", message: "Couldn't connect to server in order to confirm your authentication data.")
@@ -153,8 +165,20 @@ struct SignInWithEmailView: View {
     }
     
     private func signInSuccess() -> Void {
+        self.userSettingsService.getUserSettingsByUserId(completion: { result in
+            switch result {
+            case .success(let settings):
+                UserSettingsManager.shared.setUserSettings(settings)
+            case .failure(let error):
+                self.errorAlert = ErrorAlert(title: "Error", message: "\(error)")
+            }
+        })
+        
         isAuthenticated = true
-        router.clear()
+        
+        DispatchQueue.main.async {
+            router.clear()
+        }
         
         isLoading.toggle()
     }

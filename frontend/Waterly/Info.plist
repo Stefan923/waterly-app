@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>me.stefan923.Waterly.update_notifications</string>
+	</array>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -15,5 +19,11 @@
 	<string>671225313567-cj9sec1nodtqj4uii37gu2oilb5niqet.apps.googleusercontent.com</string>
 	<key>GIDServerClientID</key>
 	<string>671225313567-o6upnfor7fg2apgleeg5ehkiqa1rdkof.apps.googleusercontent.com</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>processing</string>
+		<string>remote-notification</string>
+	</array>
 </dict>
 </plist>

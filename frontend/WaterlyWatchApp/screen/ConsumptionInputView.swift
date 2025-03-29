@@ -11,10 +11,13 @@ import UIKit
 struct ConsumptionInputView: View {
     @Environment(\.dismiss) private var dismiss
     
-    @State private var consumption: String = "100"
     @State private var showKeyboard: Bool = false
+    @State private var disableButtons: Bool = false
     
+    var notificationId: String
+    @State var consumption: String
     var dataTransfer: DataTransferSender
+    var onFinish: () -> Void
     
     var body: some View {
         VStack(spacing: 5.0) {
@@ -27,14 +30,22 @@ struct ConsumptionInputView: View {
                             }
                         }
                     Button("Confirm") {
-                        self.dataTransfer.sendToSmartphone(
-                            notificationId: "1",
+                        self.disableButtons = true
+                        if self.dataTransfer.sendToSmartphone(
+                            notificationId: self.notificationId,
                             consumption: Int(consumption) ?? 0,
-                            status: "DONE")
+                            status: "DONE") {
+                            self.onFinish()
+                        } else {
+                            self.disableButtons = false
+                        }
                     }
+                    .disabled(self.disableButtons)
+                    
                     Button("Cancel") {
                         dismiss()
                     }
+                    .disabled(self.disableButtons)
                 }
             }
         }
@@ -52,6 +63,6 @@ struct ConsumptionInputView: View {
 
 struct ConsumptionInputView_Previews: PreviewProvider {
     static var previews: some View {
-        ConsumptionInputView(dataTransfer: DataTransferSender())
+        ConsumptionInputView(notificationId: "test-id", consumption: "0", dataTransfer: DataTransferSender(), onFinish: {})
     }
 }

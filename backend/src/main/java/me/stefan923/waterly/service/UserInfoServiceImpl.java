@@ -90,7 +90,7 @@ public class UserInfoServiceImpl implements UserInfoService {
     }
 
     @Transactional(readOnly = true)
-    boolean isUserIdUnique(String userId) {
+    public boolean isUserIdUnique(String userId) {
         if (userId == null) {
             return false;
         }
@@ -103,7 +103,7 @@ public class UserInfoServiceImpl implements UserInfoService {
     }
 
     @Transactional(readOnly = true)
-    boolean doesUserIdExist(String userId) {
+    public boolean doesUserIdExist(String userId) {
         return mongoTemplate.exists(Query.query(Criteria.where("id").is(userId)), UserAccount.class);
     }
 

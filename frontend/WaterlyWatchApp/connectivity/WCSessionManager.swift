@@ -1,6 +1,6 @@
 //
 //  WCSessionManager.swift
-//  Waterly
+//  Waterly Watch App
 //
 //  Created by Stefan Popescu on 17.05.2023.
 //
@@ -8,15 +8,16 @@
 import WatchConnectivity
 import Combine
 
-final class WCSessionManager: NSObject, ObservableObject, WCSessionDelegate {
+final class WCSessionManager: NSObject, WCSessionDelegate {
+    
     static let shared = WCSessionManager()
 
     private var session: WCSession?
     
-    @Published var receivedData: [[String: Any]] = []
-    
     private override init() {
         super.init()
+        
+        print("WCS on")
         
         if WCSession.isSupported() {
             session = WCSession.default
@@ -29,15 +30,7 @@ final class WCSessionManager: NSObject, ObservableObject, WCSessionDelegate {
         return
     }
     
-    func session(_ session: WCSession, didReceiveUserInfo userInfo: [String: Any] = [:]) {
-        receivedData.append(userInfo)
-    }
-    
-    func sessionDidBecomeInactive(_ session: WCSession) {
-        return
-    }
-
-    func sessionDidDeactivate(_ session: WCSession) {
+    func session(_ session: WCSession, didReceive file: WCSessionFile) {
         return
     }
 }

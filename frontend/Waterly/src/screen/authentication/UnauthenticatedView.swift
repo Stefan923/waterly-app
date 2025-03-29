@@ -12,13 +12,13 @@ struct UnauthenticatedView: View {
     private var notificationScheduler: NotificationScheduler = NotificationScheduler()
     
     private let isAuthenticated: Binding<Bool>
-    private let handleGoogleAuthentication: () -> Void
+    private let handleGoogleAuthentication: (Router, Binding<UserAccount>, Binding<String>) -> Void
     
     @State private var email: String
     @State private var userAccount: UserAccount
     
     init(isAuthenticated: Binding<Bool>,
-         handleGoogleAuthentication: @escaping () -> Void) {
+         handleGoogleAuthentication: @escaping (Router, Binding<UserAccount>, Binding<String>) -> Void) {
         self.isAuthenticated = isAuthenticated
         self.handleGoogleAuthentication = handleGoogleAuthentication
         
@@ -79,16 +79,15 @@ struct UnauthenticatedView: View {
                                 router.push("SignUpWithEmailView")
                             }
                             
-                            RoundedButton(title: "Sign up with Apple",
+                            /* RoundedButton(title: "Sign up with Apple",
                                           icon: Image("apple-logo-white"),
                                           backgroundColor: .black) {
-                                notificationScheduler.sendNotification("Waterly", "It's time to drink 150 ml of liquids.")
-                            }
+                            } */
                             
                             RoundedButton(title: "Sign up with Google",
                                           icon: Image("google-logo-white"),
                                           backgroundColor: Color("GoogleSignUpButtonColor")) {
-                                self.handleGoogleAuthentication()
+                                self.handleGoogleAuthentication(self.router, $userAccount, $email)
                             }
                         }
                         .padding([.top], 250)
@@ -114,6 +113,6 @@ struct UnauthenticatedView: View {
 struct UnauthenticatedView_Previews: PreviewProvider {
     static var previews: some View {
         UnauthenticatedView(isAuthenticated: Binding.constant(false),
-                            handleGoogleAuthentication: {})
+                            handleGoogleAuthentication: {_, _, _ in })
     }
 }

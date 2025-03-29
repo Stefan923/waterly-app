@@ -10,9 +10,14 @@ import GoogleSignIn
 
 @main
 struct WaterlyApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     @State var isActive: Bool = false
     @State var isAuthenticated: Bool = false
     @State var showingGoogleAuthAlert: Bool = false
+    
+    @State var displayNotification: Bool = false
+    @State var notificationData: [AnyHashable: Any] = [:]
     
     @ObservedObject var viewModel = AuthenticationService()
     
@@ -20,12 +25,15 @@ struct WaterlyApp: App {
         WindowGroup {
             ZStack {
                 if self.isActive {
-                    if self.isAuthenticated {
-                        HomeStatsView(handleSignOut: self.handleSignOut)
-                            .environmentObject(WCSessionManager.shared)
+                    if displayNotification {
+                        ConsumptionNotificationView(notificationData: notificationData, onFinish: onNotificationFinish)
                     } else {
-                        UnauthenticatedView(isAuthenticated: $isAuthenticated,
-                                            handleGoogleAuthentication: self.handleGoogleAuthentication)
+                        if self.isAuthenticated {
+                            HomeStatsView(handleSignOut: self.handleSignOut)
+                        } else {
+                            UnauthenticatedView(isAuthenticated: $isAuthenticated,
+                                                handleGoogleAuthentication: self.handleGoogleAuthentication)
+                        }
                     }
                 }
                 SplashScreenView()
@@ -38,10 +46,8 @@ struct WaterlyApp: App {
                         self.isActive.toggle()
                     }
                 }
-                GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
-                    if let user = user {
-                        isAuthenticated.toggle()
-                    }
+                if !isAuthenticated {
+                    useLastMethodToAuthenticate()
                 }
             }
             .onOpenURL { url in
@@ -57,21 +63,116 @@ struct WaterlyApp: App {
         }
     }
     
-    func handleGoogleAuthentication() -> Void {
+    func useLastMethodToAuthenticate() -> Void {
+        let userAccountOptional = UserAccount.loadFromLocalData()
+        if userAccountOptional != nil {
+            let userAccount = userAccountOptional!
+            
+            if userAccount.accountType == .credentials {
+                AuthenticationService().loginUsingCredentials(userAccount.email, userAccount.password, {
+                    UserSettingsService().getUserSettingsByUserId(completion: { result in
+                        switch result {
+                        case .success(let settings):
+                            UserSettingsManager.shared.setUserSettings(settings)
+                            WCSessionManager.shared.processReceivedData()
+                            appDelegate.setNotificationAction(self.onNotificationReceive)
+                            
+                            DispatchQueue.main.async {
+                                isAuthenticated = true
+                            }
+                        case .failure(_):
+                            break
+                        }
+                    })
+                }, { _ in })
+            }
+            
+            if userAccount.accountType == .google {
+                GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
+                    guard error == nil else {
+                        print(error)
+                        return
+                    }
+                    guard let user = user else {
+                        return
+                    }
+                    
+                    if let idToken = user.idToken?.tokenString {
+                        AuthenticationService().loginUsingGoogle(idToken, {
+                            isAuthenticated.toggle()
+                        }, {_ in})
+                    }
+                }
+            }
+        }
+    }
+    
+    private func handleGoogleAuthentication(router: Router, userAccount: Binding<UserAccount>, emailBinding: Binding<String>) -> Void {
         let rootViewController = ((UIApplication.shared.windows.first?.rootViewController)! as UIViewController)
         
         GIDSignIn.sharedInstance.signIn(
             withPresenting: rootViewController) { signInResult, error in
-                guard signInResult != nil else {
+                if let signInResult = signInResult {
+                    signInResult.user.refreshTokensIfNeeded { user, error in
+                        guard error == nil else {
+                            print(error)
+                            return
+                        }
+                        guard let user = user else {
+                            return
+                        }
+                        
+                        if let idToken = user.idToken?.tokenString {
+                            AuthenticationService().loginUsingGoogle(idToken, {
+                                if let email = user.profile?.email {
+                                    userAccount.email.wrappedValue = email
+                                    userAccount.accountType.wrappedValue = .google
+                                    userAccount.wrappedValue.saveToLocalData()
+                                }
+                                isAuthenticated.toggle()
+                            }, { statusCode in
+                                if (statusCode == 404) {
+                                    if let email = user.profile?.email {
+                                        userAccount.email.wrappedValue = email
+                                        userAccount.accountType.wrappedValue = .google
+                                        userAccount.wrappedValue.saveToLocalData()
+                                    }
+                                    DispatchQueue.main.async {
+                                        router.navPath.append("SignUpUserDetailsView")
+                                    }
+                                } else if (statusCode == 403) {
+                                    if let email = user.profile?.email {
+                                        userAccount.email.wrappedValue = email
+                                        userAccount.accountType.wrappedValue = .google
+                                        userAccount.wrappedValue.saveToLocalData()
+                                        emailBinding.wrappedValue = email
+                                    }
+                                    DispatchQueue.main.async {
+                                        router.navPath.append("ConfirmAccountView")
+                                    }
+                                }
+                            })
+                        }
+                    }
+                } else {
                     showingGoogleAuthAlert.toggle()
                     return
                 }
-                isAuthenticated.toggle()
             }
     }
     
-    func handleSignOut() -> Void {
+    private func handleSignOut() -> Void {
         GIDSignIn.sharedInstance.signOut()
+        UserAccount().saveToLocalData()
         self.isAuthenticated.toggle()
+    }
+    
+    private func onNotificationReceive(_ notificationData: [AnyHashable: Any]) -> Void {
+        self.notificationData = notificationData
+        self.displayNotification = true
+    }
+    
+    private func onNotificationFinish() {
+        self.displayNotification = false
     }
 }

@@ -17,20 +17,34 @@ class DataTransferSender: NSObject {
             
             if session.activationState == .activated {
                 let dataToSend: [String: Any] = [
-                    "notificationId": notificationId,
-                    "consumption": consumption,
-                    "status": status
+                    "id": notificationId,
+                    "quantity": consumption,
+                    "consumptionStatus": status
                 ]
+                
+                print(dataToSend)
                 
                 session.transferUserInfo(dataToSend)
                 return true
             } else {
-                return false
                 print("[DataTransferSender#sendToSmartphone()] WCSession is not active.")
+                return false
             }
         } else {
-            return false
             print("[DataTransferSender#sendToSmartphone()] WCSession is not supported on this device.")
+            return false
+        }
+    }
+    
+    func sendSensorData(sensorData: String, fileName: String) -> Void {
+        WCSession.default.sendMessage(["sensorData": sensorData], replyHandler: nil) { (error) in
+            print("Error sending sensor data to iPhone: \(error)")
+        }
+    }
+    
+    func sendRequestToSmartphone(message: [String : Any], replyHandler: @escaping (([String : Any]) -> Void)) -> Void {
+        WCSession.default.sendMessage(message, replyHandler: replyHandler) { (error) in
+            print("Error sending request to iPhone: \(error)")
         }
     }
 }

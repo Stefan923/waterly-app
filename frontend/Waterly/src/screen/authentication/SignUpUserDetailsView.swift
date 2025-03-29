@@ -19,6 +19,7 @@ struct SignUpUserDetailsView: View {
     @State private var firstname = ""
     @State private var lastname = ""
     @State private var dateOfBirth = Date()
+    @State private var gender = GenderType.MALE
     @State private var weight = ""
     @State private var height = ""
     
@@ -56,55 +57,7 @@ struct SignUpUserDetailsView: View {
                     .frame(height: geometry.size.height * 1.05)
                     
                     VStack {
-                        VStack(spacing: 0) {
-                            Text("Fill in to complete account creation:")
-                                .foregroundColor(Color("TextFieldFontColor"))
-                                .font(.system(size: 20).weight(.semibold))
-                                .padding([.bottom], 16.0)
-                            
-                            TextField(text: $firstname, prompt: Text("Firstname").foregroundColor(Color("TextFieldPlaceholderColor"))) {
-                                Text("Firstname")
-                            }
-                            .textFieldStyle(OutlinedTextFieldStyle(corners: [.topLeft, .topRight]))
-                            .focused($focusedField, equals: .firstname)
-                            .padding([.leading, .trailing], 6.0)
-                            .frame(height: 60.0)
-                            
-                            TextField(text: $lastname, prompt: Text("Lastname").foregroundColor(Color("TextFieldPlaceholderColor"))) {
-                                Text("Lastname")
-                            }
-                            .textFieldStyle(OutlinedTextFieldStyle(corners: []))
-                            .focused($focusedField, equals: .lastname)
-                            .padding([.leading, .trailing], 6.0)
-                            .frame(height: 60.0)
-                            
-                            OutlinedDatePicker(title: "Date of birth",
-                                               selectedDate: $dateOfBirth,
-                                               corners: [],
-                                               isWrongValue: $isDateOfBirthInvalid)
-                            .padding([.leading, .trailing], 6.0)
-                            .colorScheme(.light)
-                            
-                            TextField(text: $weight, prompt: Text("Weight").foregroundColor(Color("TextFieldPlaceholderColor"))) {
-                                Text("Weight")
-                            }
-                            .textFieldStyle(OutlinedTextFieldStyle(corners: []))
-                            .keyboardType(.decimalPad)
-                            .focused($focusedField, equals: .weight)
-                            .padding([.leading, .trailing], 6.0)
-                            .frame(height: 60.0)
-                            
-                            TextField(text: $height, prompt: Text("Height").foregroundColor(Color("TextFieldPlaceholderColor"))) {
-                                Text("Height")
-                            }
-                            .textFieldStyle(OutlinedTextFieldStyle(corners: [.bottomLeft, .bottomRight]))
-                            .keyboardType(.decimalPad)
-                            .focused($focusedField, equals: .height)
-                            .padding([.leading, .trailing], 6.0)
-                            .frame(height: 60.0)
-                        }
-                        .frame(alignment: .top)
-                        .padding([.leading, .trailing], 36.0)
+                        self.createFormView()
                         
                         Spacer()
                         
@@ -137,6 +90,7 @@ struct SignUpUserDetailsView: View {
                 
                 if isLoading {
                     Color("LoadingBackgroundColor").ignoresSafeArea()
+                    ProgressView().colorScheme(.light)
                 }
             }
         }
@@ -177,6 +131,122 @@ struct SignUpUserDetailsView: View {
             }
         }
         .ignoresSafeArea(.keyboard)
+    }
+    
+    private func createFormView() -> some View {
+        VStack(spacing: 0) {
+            Text("Fill in to complete account creation:")
+                .foregroundColor(Color("TextFieldFontColor"))
+                .font(.system(size: 20).weight(.semibold))
+                .padding([.bottom], 16.0)
+            
+            TextField(text: $firstname, prompt: Text("Firstname").foregroundColor(Color("TextFieldPlaceholderColor"))) {
+                Text("Firstname")
+            }
+            .textFieldStyle(OutlinedTextFieldStyle(corners: [.topLeft, .topRight]))
+            .focused($focusedField, equals: .firstname)
+            .padding([.leading, .trailing], 6.0)
+            .frame(height: 60.0)
+            
+            TextField(text: $lastname, prompt: Text("Lastname").foregroundColor(Color("TextFieldPlaceholderColor"))) {
+                Text("Lastname")
+            }
+            .textFieldStyle(OutlinedTextFieldStyle(corners: []))
+            .focused($focusedField, equals: .lastname)
+            .padding([.leading, .trailing], 6.0)
+            .frame(height: 60.0)
+            
+            OutlinedGenderPicker(title: "Gender",
+                           gender: $gender,
+                           corners: [],
+                           isWrongValue: Binding.constant(false))
+            .padding([.leading, .trailing], 6.0)
+            .colorScheme(.light)
+            
+            OutlinedDatePicker(title: "Date of birth",
+                               selectedDate: $dateOfBirth,
+                               corners: [],
+                               isWrongValue: $isDateOfBirthInvalid)
+            .padding([.leading, .trailing], 6.0)
+            .colorScheme(.light)
+            
+            TextField(text: $weight, prompt: Text("Weight").foregroundColor(Color("TextFieldPlaceholderColor"))) {
+                Text("Weight")
+            }
+            .textFieldStyle(OutlinedTextFieldStyle(corners: []))
+            .keyboardType(.decimalPad)
+            .focused($focusedField, equals: .weight)
+            .padding([.leading, .trailing], 6.0)
+            .frame(height: 60.0)
+            
+            TextField(text: $height, prompt: Text("Height").foregroundColor(Color("TextFieldPlaceholderColor"))) {
+                Text("Height")
+            }
+            .textFieldStyle(OutlinedTextFieldStyle(corners: [.bottomLeft, .bottomRight]))
+            .keyboardType(.decimalPad)
+            .focused($focusedField, equals: .height)
+            .padding([.leading, .trailing], 6.0)
+            .frame(height: 60.0)
+            
+            if isFirstnameInvalid {
+                HStack {
+                    Image("error-icon")
+                        .resizable()
+                        .frame(width: 16, height: 16)
+                    
+                    Text("Firstname should only contain letters!")
+                        .foregroundColor(Color("ErrorRedColor"))
+                        .font(.system(size: 18).weight(.regular))
+                }
+                .padding([.top], 16.0)
+            } else if isLastnameInvalid {
+                HStack {
+                    Image("error-icon")
+                        .resizable()
+                        .frame(width: 16, height: 16)
+                    
+                    Text("Lastname should only contain letters!")
+                        .foregroundColor(Color("ErrorRedColor"))
+                        .font(.system(size: 18).weight(.regular))
+                }
+                .padding([.top], 16.0)
+            } else if isDateOfBirthInvalid {
+                HStack {
+                    Image("error-icon")
+                        .resizable()
+                        .frame(width: 16, height: 16)
+                    
+                    Text("You should be at least 7 years old!")
+                        .foregroundColor(Color("ErrorRedColor"))
+                        .font(.system(size: 18).weight(.regular))
+                }
+                .padding([.top], 16.0)
+            } else if isWeightInvalid {
+                HStack {
+                    Image("error-icon")
+                        .resizable()
+                        .frame(width: 16, height: 16)
+                    
+                    Text("Weight should be a positive number!")
+                        .foregroundColor(Color("ErrorRedColor"))
+                        .font(.system(size: 18).weight(.regular))
+                }
+                .padding([.top], 16.0)
+            } else if isHeightInvalid {
+                HStack {
+                    Image("error-icon")
+                        .resizable()
+                        .frame(width: 16, height: 16)
+                    
+                    Text("Height should be a positive number!")
+                        .foregroundColor(Color("ErrorRedColor"))
+                        .font(.system(size: 18).weight(.regular))
+                }
+                .padding([.top], 16.0)
+            }
+        }
+        .frame(alignment: .top)
+        .padding([.leading, .trailing], 36.0)
     }
     
     private var formattedDate: String {
@@ -226,7 +296,7 @@ struct SignUpUserDetailsView: View {
         if isUserAccountValid {
             let weightValue = Double(weight) ?? 0.0
             let heightValue = Double(height) ?? 0.0
-            let userInfo = UserInfo(firstname, lastname, dateOfBirth, .male, weightValue, heightValue)
+            let userInfo = UserInfo(firstname, lastname, dateOfBirth, gender, weightValue, heightValue)
             
             self.viewModel.registerUsingCredentials(self.userAccount.wrappedValue, userInfo, self.signUpSuccess, self.signUpFailure)
         }
@@ -238,7 +308,23 @@ struct SignUpUserDetailsView: View {
     }
 
     private func signUpSuccess() -> Void {
+        viewModel.requestConfirmCode(self.userAccount.wrappedValue.email, self.codeRequestSuccess, self.codeRequestFailure)
         router.push("ConfirmAccountView")
+        isLoading.toggle()
+    }
+    
+    private func codeRequestFailure(statusCode: Int) -> Void {
+        switch statusCode {
+        default:
+            self.errorAlert = ErrorAlert(title: "Error", message: "Couldn't connect to server in order to send a new confirmation code.")
+        }
+        
+        isLoading.toggle()
+    }
+    
+    private func codeRequestSuccess() -> Void {
+        self.errorAlert = ErrorAlert(title: "Success", message: "A confirmation code has been sent to your email.")
+        
         isLoading.toggle()
     }
 }
@@ -277,6 +363,6 @@ extension SignUpUserDetailsView {
 
 struct SignUpUserDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        SignUpUserDetailsView(userAccount: Binding.constant(UserAccount("", .credentials, "")))
+        SignUpUserDetailsView(userAccount: Binding.constant(UserAccount(email: "", accountType: .credentials, password: "")))
     }
 }

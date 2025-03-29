@@ -13,5 +13,6 @@ public class UserAccountRegistration {
     private String email;
     private UserAccountType accountType;
     private String password;
+    private String o2authToken;
 
 }

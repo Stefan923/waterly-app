@@ -1,13 +1,11 @@
 package me.stefan923.waterly.service;
 
 import lombok.RequiredArgsConstructor;
-import me.stefan923.waterly.dto.UserAccountConfirmation;
-import me.stefan923.waterly.dto.UserAccountLogin;
-import me.stefan923.waterly.dto.UserAccountRegistration;
-import me.stefan923.waterly.dto.UserAccountResponse;
+import me.stefan923.waterly.dto.*;
 import me.stefan923.waterly.entity.UserAccount;
 import me.stefan923.waterly.entity.UserAccountType;
 import me.stefan923.waterly.exception.NonEnabledAccountException;
+import me.stefan923.waterly.exception.NonRegisteredAccountException;
 import me.stefan923.waterly.repository.UserAccountRepository;
 import me.stefan923.waterly.security.JwtAuthenticationUtil;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -24,6 +22,7 @@ import java.util.Random;
 public class UserAccountServiceImpl implements UserAccountService {
     private final MongoTemplate mongoTemplate;
     private final UserAccountRepository userAccountRepository;
+    private final UserSettingsService userSettingsService;
     private final JwtAuthenticationUtil jwtAuthenticationUtil;
     private final Random random = new Random();
 
@@ -35,8 +34,9 @@ public class UserAccountServiceImpl implements UserAccountService {
 
     @Override
     @Transactional(readOnly = true)
-    public String login(UserAccountLogin userAccountLogin) throws Exception {
-        if (userAccountLogin.getAccountType().equals(UserAccountType.CREDENTIALS)) {
+    public UserTokenResponse login(UserAccountLogin userAccountLogin) throws Exception {
+        UserAccountType userAccountType = userAccountLogin.getAccountType();
+        if (userAccountType.equals(UserAccountType.CREDENTIALS)) {
             Optional<UserAccount> userAccountOptional = userAccountRepository.findByEmailIsLike(userAccountLogin.getEmail());
             if (userAccountOptional.isEmpty()) {
                 throw new Exception("Incorrect email or password.");
@@ -45,19 +45,33 @@ public class UserAccountServiceImpl implements UserAccountService {
             UserAccount userAccount = userAccountOptional.get();
             if (userAccount.getPassword().equals(userAccountLogin.getPassword())) {
                 if (userAccount.isEnabled()) {
-                    return jwtAuthenticationUtil.generateToken(userAccount);
+                    return new UserTokenResponse(userAccount.getId(), jwtAuthenticationUtil.generateToken(userAccount));
                 }
                 throw new NonEnabledAccountException("Your account was not confirmed yet.");
             }
             throw new Exception("Incorrect email or password.");
+        } else if (userAccountType.equals(UserAccountType.GOOGLE)) {
+            Optional<UserAccount> userAccountOptional = userAccountRepository.findByEmailIsLike(userAccountLogin.getEmail());
+            if (userAccountOptional.isEmpty()) {
+                throw new NonRegisteredAccountException("There is no existing account with given email.");
+            }
+
+            UserAccount userAccount = userAccountOptional.get();
+            if (userAccount.getAccountType().equals(UserAccountType.GOOGLE)) {
+                if (userAccount.isEnabled()) {
+                    return new UserTokenResponse(userAccount.getId(), jwtAuthenticationUtil.generateToken(userAccount));
+                }
+                throw new NonEnabledAccountException("Your account was not confirmed yet.");
+            }
+            throw new Exception("Wrong authentication method.");
         } else {
             throw new Exception("Authentication method not implemented.");
         }
     }
 
     @Override
-    @Transactional()
-    public String confirmEmail(UserAccountConfirmation userAccountConfirmation) throws Exception {
+    @Transactional
+    public UserTokenResponse confirmEmail(UserAccountConfirmation userAccountConfirmation) throws Exception {
         Optional<UserAccount> userAccountOptional = userAccountRepository
                 .findByEmailIsLike(userAccountConfirmation.getEmail());
         if (userAccountOptional.isEmpty()) {
@@ -77,10 +91,11 @@ public class UserAccountServiceImpl implements UserAccountService {
         userAccount.setAccountEnabled(true);
         userAccountRepository.save(userAccount);
 
-        return jwtAuthenticationUtil.generateToken(userAccount);
+        return new UserTokenResponse(userAccount.getId(), jwtAuthenticationUtil.generateToken(userAccount));
     }
 
     @Override
+    @Transactional(readOnly = true)
     public void validateEmail(String email) throws Exception {
         if (isEmailUnique(email)) {
             return;
@@ -90,9 +105,14 @@ public class UserAccountServiceImpl implements UserAccountService {
 
     @Override
     @Transactional
-    public Optional<UserAccountResponse> save(UserAccountRegistration userAccountRegistration) throws Exception {
+    public Optional<UserAccountResponse> save(UserAccountRequest userAccountRequest) throws Exception {
+        UserAccountRegistration userAccountRegistration = userAccountRequest.getUserAccountRegistration();
         if (!isEmailUnique(userAccountRegistration.getEmail())) {
             throw new Exception("This email address has already been used.");
+        }
+
+        if (!userAccountRegistration.getAccountType().equals(UserAccountType.CREDENTIALS)) {
+            userAccountRegistration.setPassword(generateRandomPassword());
         }
 
         try {
@@ -107,6 +127,13 @@ public class UserAccountServiceImpl implements UserAccountService {
                     .isAccountLocked(false)
                     .build()
             );
+
+            try {
+                userSettingsService.saveDefaultUserSettings(userAccount.getId(), userAccountRequest.getUserInfoRequest());
+            } catch (Exception e) {
+                userAccountRepository.delete(userAccount);
+                throw e;
+            }
 
             return Optional.of(userAccount).map(UserAccountResponse::new);
         } catch (Exception e) {
@@ -144,7 +171,7 @@ public class UserAccountServiceImpl implements UserAccountService {
     }
 
     @Transactional(readOnly = true)
-    boolean isEmailUnique(String email) {
+    public boolean isEmailUnique(String email) {
         if (email == null) {
             return false;
         }
@@ -158,5 +185,18 @@ public class UserAccountServiceImpl implements UserAccountService {
 
     private int generateConfirmCode() {
         return random.nextInt(900000) + 100000;
+    }
+
+    private String generateRandomPassword() {
+        int leftLimit = 48;
+        int rightLimit = 122;
+        int targetStringLength = 16;
+        Random random = new Random();
+
+        return random.ints(leftLimit, rightLimit + 1)
+                .filter(i -> (i <= 57 || i >= 65) && (i <= 90 || i >= 97))
+                .limit(targetStringLength)
+                .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+                .toString();
     }
 }

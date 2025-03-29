@@ -1,6 +1,7 @@
 package me.stefan923.waterly.controller;
 
 import me.stefan923.waterly.dto.UserAccountRegistration;
+import me.stefan923.waterly.dto.UserAccountRequest;
 import me.stefan923.waterly.dto.UserAccountResponse;
 import me.stefan923.waterly.service.UserAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,9 +34,9 @@ public class UserAccountController {
     }
 
     @PostMapping("")
-    public ResponseEntity<?> registerUserAccount(@RequestBody UserAccountRegistration accountRegistration) {
+    public ResponseEntity<?> registerUserAccount(@RequestBody UserAccountRequest userAccountRequest) {
         try {
-            Optional<UserAccountResponse> userAccountResponse = userAccountService.save(accountRegistration);
+            Optional<UserAccountResponse> userAccountResponse = userAccountService.save(userAccountRequest);
             if (userAccountResponse.isPresent()) {
                 return new ResponseEntity<>(userAccountResponse.get(), HttpStatus.CREATED);
             } else {

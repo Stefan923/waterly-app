@@ -7,21 +7,32 @@
 
 import Foundation
 
-enum GenderType {
-    case male
-    case female
-    case other
+enum GenderType : String, Codable {
+    case MALE
+    case FEMALE
+    case OTHER
 }
 
 extension GenderType {
     func toString() -> String {
         switch self {
-        case .male:
+        case .MALE:
             return "MALE"
-        case .female:
+        case .FEMALE:
             return "FEMALE"
-        case .other:
+        case .OTHER:
             return "OTHER"
+        }
+    }
+    
+    func toStringWithFirstUpper() -> String {
+        switch self {
+        case .MALE:
+            return "Male"
+        case .FEMALE:
+            return "Female"
+        case .OTHER:
+            return "Other"
         }
     }
 }

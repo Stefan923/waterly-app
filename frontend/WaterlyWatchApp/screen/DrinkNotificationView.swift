@@ -7,11 +7,28 @@
 
 import SwiftUI
 
-struct ActionNotificationView: View {
+struct DrinkNotificationView: View {
     @StateObject private var router = Router()
     private var dataTransfer = DataTransferSender()
     
+    private var notificationData: Binding<[AnyHashable: Any]>
+    private var onFinish: () -> Void
+    
+    @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State private var timeToComplete: TimeInterval = 2 * 60
+    @State private var timerDisplay: String = "00:00"
+    
+    @State private var defaultConsumption: String = "0"
     @State private var showingCommunicationAlert: Bool = false
+    @State private var disableButtons: Bool = false
+    
+    init(
+        notificationData: Binding<[AnyHashable : Any]>,
+        onFinish: @escaping () -> Void
+    ) {
+        self.notificationData = notificationData
+        self.onFinish = onFinish
+    }
     
     var body: some View {
         NavigationStack(path: $router.navPath) {
@@ -21,34 +38,48 @@ struct ActionNotificationView: View {
                         Text("It's time to drink!")
                             .lineLimit(10)
                             .fixedSize(horizontal: false, vertical: true)
-                        Text("01:58")
+                        Text(timerDisplay)
                             .lineLimit(10)
                             .fixedSize(horizontal: false, vertical: true)
                     }
+                    
                     Button("Confirm") {
                         router.push("ConsumptionInputView")
                     }
+                    .disabled(self.disableButtons)
+                    
                     Button("Postphone") {
-                        if !self.dataTransfer.sendToSmartphone(
-                            notificationId: "1",
+                        self.disableButtons = true
+                        if self.dataTransfer.sendToSmartphone(
+                            notificationId: notificationData["id"].wrappedValue as! String,
                             consumption: 0,
                             status: "POSTPHONED") {
+                            self.onFinish()
+                        } else {
+                            self.disableButtons = false
                             showingCommunicationAlert = true
                         }
                     }
+                    .disabled(self.disableButtons)
+                    
                     Button("Cancel") {
-                        if !self.dataTransfer.sendToSmartphone(
-                            notificationId: "1",
+                        self.disableButtons = true
+                        if self.dataTransfer.sendToSmartphone(
+                            notificationId: notificationData["id"].wrappedValue as! String,
                             consumption: 0,
                             status: "CANCELED") {
+                            self.onFinish()
+                        } else {
+                            self.disableButtons = false
                             showingCommunicationAlert = true
                         }
                     }
+                    .disabled(self.disableButtons)
                 }
             }
             .navigationDestination(for: String.self) { view in
                 if (view == "ConsumptionInputView") {
-                    ConsumptionInputView(dataTransfer: self.dataTransfer)
+                    ConsumptionInputView(notificationId: notificationData["id"].wrappedValue as! String, consumption: defaultConsumption, dataTransfer: self.dataTransfer, onFinish: self.onFinish)
                         .navigationTitle {
                             HStack {
                                 Text("Waterly")
@@ -60,6 +91,15 @@ struct ActionNotificationView: View {
                                 Spacer(minLength: 0.0)
                             }
                         }
+                }
+            }
+            .onAppear(perform: {
+                defaultConsumption = "\(notificationData["defaultLiquidsConsumption"].wrappedValue as! Int)"
+            })
+            .onReceive(timer) { _ in
+                if timeToComplete > 0 {
+                    timeToComplete -= 1
+                    timerDisplay = TimeIntervalConverter.formatTimeInterval(timeToComplete)
                 }
             }
             .navigationTitle {
@@ -85,8 +125,11 @@ struct ActionNotificationView: View {
     }
 }
 
-struct ActionNotificationView_Previews: PreviewProvider {
+struct DrinkNotificationView_Previews: PreviewProvider {
     static var previews: some View {
-        ActionNotificationView()
+        let notificationData: [AnyHashable: Any] = [
+            "defaultLiquidsConsumption": 150
+        ]
+        DrinkNotificationView(notificationData: Binding.constant(notificationData), onFinish: {})
     }
 }

@@ -13,6 +13,7 @@ struct DropdownButton<Content: View> : View {
     private var corners : [RectangleCorner]
     private var expandedCorners : [RectangleCorner]
     private var buttonWidth : CGFloat
+    private var buttonHeight : CGFloat
     
     @ViewBuilder private var content: () -> Content
     
@@ -26,6 +27,7 @@ struct DropdownButton<Content: View> : View {
          corners: [RectangleCorner] = [.all],
          expandedCorners: [RectangleCorner] = [.all],
          buttonWidth: CGFloat = 380,
+         buttonHeight: CGFloat = 60,
          @ViewBuilder content: @escaping () -> Content
     ) {
         self.title = title
@@ -33,6 +35,7 @@ struct DropdownButton<Content: View> : View {
         self.corners = corners
         self.expandedCorners = expandedCorners
         self.buttonWidth = buttonWidth
+        self.buttonHeight = buttonHeight
         self.content = content
     }
     
@@ -41,9 +44,8 @@ struct DropdownButton<Content: View> : View {
             ZStack {
                 if (isActive) {
                     RoundedCornersRectangle(radius: self.radius, corners: self.expandedCorners)
-                        .fill(Color("TextFieldFillColor"),
-                              strokeBorder: Color("TextFieldEdgeColor"),
-                              lineWidth: 1.0)
+                        .fill(Color.white)
+                        .shadow(color: .black.opacity(0.3), radius: 2, x: 0, y: 2)
                         .frame(height: height)
                 }
                 
@@ -51,15 +53,13 @@ struct DropdownButton<Content: View> : View {
                     VStack(spacing: 0.0) {
                         Spacer(minLength: 0.0)
                         
-                        self.content().frame(height: 60.0, alignment: .bottom)
-                    }
+                        self.content().frame(height: max(60.0, height - 60.0), alignment: .bottom)
+                    }.frame(height: max(60.0, height))
                     
                     VStack(spacing: 0.0) {
                         ZStack {
                             RoundedCornersRectangle(radius: self.radius, corners: self.corners)
-                                .fill(Color("TextFieldFillColor"),
-                                      strokeBorder: Color("TextFieldEdgeColor"),
-                                      lineWidth: 1.0)
+                                .fill(.white.shadow(.drop(radius: 2)))
                             
                             HStack {
                                 Text(self.title)
@@ -78,6 +78,9 @@ struct DropdownButton<Content: View> : View {
                             }
                         }
                         .frame(height: 60.0, alignment: .top)
+                        .onTapGesture {
+                            self.toggleDropdown()
+                        }
                         
                         Spacer(minLength: 0.0)
                     }
@@ -86,9 +89,6 @@ struct DropdownButton<Content: View> : View {
             }
         }
         .frame(width: self.buttonWidth, height: height)
-        .onTapGesture {
-            self.toggleDropdown()
-        }
     }
     
     private func toggleDropdown() {
@@ -97,7 +97,7 @@ struct DropdownButton<Content: View> : View {
                 self.isActive.toggle()
             }
             withAnimation(.easeInOut(duration: 0.3)) {
-                self.height = 120.0
+                self.height = buttonHeight + 60.0
                 self.rotationAngle = 180.0
             }
         } else {
@@ -119,16 +119,19 @@ struct DropdownButton_Previews: PreviewProvider {
         ZStack {
             Color(.white).ignoresSafeArea(.all)
             VStack(spacing: 0.0) {
-                DropdownButton<IncrementalInput>(title: "Default water consumption", radius: 0.30, corners: [.top], expandedCorners: [.top]) {
-                    IncrementalInput(value: 0)
+                DropdownButton(title: "Default water consumption", radius: 0.30, corners: [.top], expandedCorners: [.top]) {
+                    IncrementalInput(value: Binding.constant(0), measureUnit: "ml", incrementStep: 25, minValue: 0, maxValue: 2000)
                 }
                     .frame(alignment: .top)
-                DropdownButton<IncrementalInput>(title: "Default calories consumption", radius: 0.30, corners: [], expandedCorners: []) {
-                    IncrementalInput(value: 0)
+                DropdownButton(title: "Default calories consumption", radius: 0.30, corners: [], expandedCorners: [], buttonHeight: 120.0) {
+                    VStack(spacing: 0.0) {
+                        IncrementalInput(value: Binding.constant(0), measureUnit: "ml", incrementStep: 25, minValue: 0, maxValue: 2000).frame(alignment: .bottom)
+                        IncrementalInput(value: Binding.constant(0), measureUnit: "ml", incrementStep: 25, minValue: 0, maxValue: 2000).frame(alignment: .bottom)
+                    }
                 }
                     .frame(alignment: .top)
-                DropdownButton<IncrementalInput>(title: "Other user details", radius: 0.30, corners: [.bottom], expandedCorners: [.bottom]) {
-                    IncrementalInput(value: 0)
+                DropdownButton(title: "Other user details", radius: 0.30, corners: [.bottom], expandedCorners: [.bottom]) {
+                    IncrementalInput(value: Binding.constant(0), measureUnit: "ml", incrementStep: 25, minValue: 0, maxValue: 2000)
                 }
                     .frame(alignment: .top)
                 Spacer()

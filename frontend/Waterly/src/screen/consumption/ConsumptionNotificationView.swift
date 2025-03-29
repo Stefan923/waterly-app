@@ -1,0 +1,140 @@
+//
+//  ConsumptionView.swift
+//  Waterly
+//
+//  Created by Stefan Popescu on 26.06.2023.
+//
+
+import SwiftUI
+
+struct ConsumptionNotificationView: View {
+    let notificationData: [AnyHashable : Any]
+    let onFinish: () -> Void
+    
+    @State private var isLoading = false
+    @State private var errorAlert: ErrorAlert?
+    
+    @State private var quantity = 0
+    
+    var body: some View {
+        GeometryReader { geometry in
+            ZStack {
+                Color("PrimaryColor")
+                    .ignoresSafeArea(.all, edges: .all)
+                
+                ZStack {
+                    VStack {
+                        Spacer()
+                        
+                        WaveEdgedRectangle()
+                            .fill(Color("SecondaryColor"))
+                            .shadow(color: .black.opacity(0.25), radius: 15, x: 0, y: -10)
+                            .frame(height: geometry.size.height * 0.98, alignment: .bottom)
+                    }
+                    .frame(height: geometry.size.height * 1.05)
+                    
+                    VStack {
+                        self.createFormView()
+                        
+                        Spacer()
+                        
+                        VStack(spacing: 0) {
+                            RoundedButton(title: "Confirm",
+                                          backgroundColor: Color("PrimaryColor"),
+                                          foregroundColor: .white,
+                                          maxWidth: 140) {
+                                isLoading = true
+                                updateConsumption(.DONE)
+                            }
+                            
+                            RoundedButton(title: "Postphone",
+                                          backgroundColor: Color("PrimaryColor"),
+                                          foregroundColor: .white,
+                                          maxWidth: 140) {
+                                isLoading = true
+                                updateConsumption(.POSTPHONED)
+                            }
+                            
+                            RoundedButton(title: "Cancel",
+                                          backgroundColor: .white,
+                                          foregroundColor: .black,
+                                          maxWidth: 140) {
+                                isLoading = true
+                                updateConsumption(.CANCELED)
+                            }
+                        }
+                        .frame(alignment: .bottom)
+                    }
+                    .padding([.top], geometry.size.height * 0.15)
+                    .padding([.bottom], geometry.size.height * 0.08)
+                }
+                
+                if isLoading {
+                    Color("LoadingBackgroundColor").ignoresSafeArea()
+                    ProgressView().colorScheme(.light)
+                }
+            }
+        }
+        .alert(item: $errorAlert) { error in
+            Alert(title: Text(error.title), message: Text(error.message), dismissButton: .default(Text("Close")))
+        }
+        .onAppear(perform: {
+            if let consumptionType = notificationData["consumptionType"] as? String {
+                if consumptionType == "LIQUID" {
+                    if let defaultLiquidsConsumption = notificationData["defaultLiquidsConsumption"] as? Int {
+                        quantity = defaultLiquidsConsumption
+                    }
+                } else {
+                    if let defaultCaloriesConsumption = notificationData["defaultCaloriesConsumption"] as? Int {
+                        quantity = defaultCaloriesConsumption
+                    }
+                }
+            }
+        })
+    }
+    
+    private func createFormView() -> some View {
+        VStack(spacing: 0) {
+            if let consumptionType = notificationData["consumptionType"] as? String {
+                Text(consumptionType == "LIQUID" ? "It's time to drink!" : "It's time to eat!")
+                    .foregroundColor(Color("TextFieldFontColor"))
+                    .font(.system(size: 20).weight(.semibold))
+                    .padding([.bottom], 16.0)
+            
+            OutlinedIncrementalInput(value: $quantity, measureUnit: consumptionType == "LIQUID" ? "ml" : "cal", incrementStep: 25, minValue: 0, maxValue: 2000, radius: 0.25, corners: [.all])
+                .frame(width: 300.0, height: 60.0)
+            }
+        }
+        .frame(alignment: .top)
+        .padding([.leading, .trailing], 24.0)
+    }
+    
+    private func updateConsumption(_ consumptionStatus: ConsumptionStatus) -> Void {
+        ConsumptionService().updateConsumption(consumption: ConsumptionUpdateRequest(
+            id: self.notificationData["id"] as! String,
+            consumptionStatus: consumptionStatus,
+            quantity: consumptionStatus == .DONE ? Float(self.quantity) : 0
+        ), completion: { result in
+            switch result {
+            case .success(_):
+                onFinish()
+                break
+            case .failure(let error):
+                isLoading = false
+                self.errorAlert = ErrorAlert(title: "Error", message: "\(error)")
+                break
+            }
+        })
+    }
+}
+
+struct ConsumptionNotificationView_Previews: PreviewProvider {
+    static var previews: some View {
+        let notificationData: [AnyHashable : Any] = [
+            "id": "1",
+            "consumptionType": "LIQUID",
+            "defaultLiquidsConsumption": 300
+        ]
+        ConsumptionNotificationView(notificationData: notificationData, onFinish: {})
+    }
+}

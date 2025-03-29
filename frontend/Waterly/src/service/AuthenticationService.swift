@@ -8,12 +8,13 @@
 import Foundation
 
 class AuthenticationService: ObservableObject {
-    private let BACKEND_ENDPOINT = "http://stefanpopescu.local:8080/auth"
+    private static let BACKEND_ENDPOINT = "http://stefanpopescu.local:8080/auth"
+    private static let SERVICE_NAME = "me.stefan923.WaterlyApp"
     
-    @Published var userAccountToken: UserAccountToken = UserAccountToken(token: "")
+    private var userAccountTokenManager = UserAccountTokenManager.shared
 
     func loginUsingCredentials(_ email: String, _ password: String, _ successAction: @escaping () -> Void, _ failureAction: @escaping (Int) -> Void) {
-        guard let url = URL(string: "\(BACKEND_ENDPOINT)/login") else {
+        guard let url = URL(string: "\(AuthenticationService.BACKEND_ENDPOINT)/login") else {
             return
         }
         
@@ -47,9 +48,53 @@ class AuthenticationService: ObservableObject {
                 let decoder = JSONDecoder()
                 do {
                     let decodedData = try decoder.decode(UserAccountToken.self, from: data)
-                    DispatchQueue.main.async {
-                        self.userAccountToken = decodedData
-                    }
+                    self.userAccountTokenManager.setUserAccountToken(decodedData)
+                    UserAccount(email: email, accountType: .credentials, password: password).saveToLocalData()
+                    
+                    successAction()
+                } catch {
+                    failureAction(600)
+                    print("Error decoding data: \(error)")
+                }
+            }
+        }.resume()
+    }
+    
+    func loginUsingGoogle(_ o2authToken: String, _ successAction: @escaping () -> Void, _ failureAction: @escaping (Int) -> Void) {
+        guard let url = URL(string: "\(AuthenticationService.BACKEND_ENDPOINT)/login") else {
+            return
+        }
+        
+        let requestData = [
+            "accountType": "GOOGLE",
+            "o2authToken": o2authToken
+        ]
+        let jsonData = try? JSONSerialization.data(withJSONObject: requestData)
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = jsonData
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                failureAction(600)
+                print("Error: \(error)")
+                return
+            }
+            
+            if let httpResponse = response as? HTTPURLResponse {
+                if !(200...299).contains(httpResponse.statusCode) {
+                    failureAction(httpResponse.statusCode)
+                    return;
+                }
+            }
+            
+            if let data = data {
+                let decoder = JSONDecoder()
+                do {
+                    let userAccountToken = try decoder.decode(UserAccountToken.self, from: data)
+                    self.userAccountTokenManager.setUserAccountToken(userAccountToken)
                     
                     successAction()
                 } catch {
@@ -64,7 +109,7 @@ class AuthenticationService: ObservableObject {
                                   _ userInfo: UserInfo,
                                   _ successAction: @escaping () -> Void,
                                   _ failureAction: @escaping (Int, String) -> Void) {
-        guard let url = URL(string: "\(BACKEND_ENDPOINT)/register") else {
+        guard let url = URL(string: "\(AuthenticationService.BACKEND_ENDPOINT)/register") else {
             return
         }
         
@@ -92,15 +137,9 @@ class AuthenticationService: ObservableObject {
             if let httpResponse = response as? HTTPURLResponse {
                 if !(200...299).contains(httpResponse.statusCode) {
                     if let data = data {
-                        do {
-                            let stringData = String(data: data, encoding: .utf8)
-                            DispatchQueue.main.async {
-                                failureAction(httpResponse.statusCode, stringData ?? "Aici 1")
-                                return;
-                            }
-                        } catch {
-                            failureAction(600, "Aici 3")
-                            print("Error decoding data: \(error)")
+                        let stringData = String(data: data, encoding: .utf8)
+                        DispatchQueue.main.async {
+                            failureAction(httpResponse.statusCode, stringData ?? "Aici 1")
                             return;
                         }
                     }
@@ -115,7 +154,7 @@ class AuthenticationService: ObservableObject {
     }
     
     func validateEmail(_ email: String, _ successAction: @escaping () -> Void, _ failureAction: @escaping (Int) -> Void) {
-        guard let url = URL(string: "\(BACKEND_ENDPOINT)/validate?email=\(email)") else {
+        guard let url = URL(string: "\(AuthenticationService.BACKEND_ENDPOINT)/validate?email=\(email)") else {
             return
         }
         
@@ -141,7 +180,7 @@ class AuthenticationService: ObservableObject {
     }
     
     func requestConfirmCode(_ email: String, _ successAction: @escaping () -> Void, _ failureAction: @escaping (Int) -> Void) {
-        guard let url = URL(string: "\(BACKEND_ENDPOINT)/request_confirm_code?email=\(email)") else {
+        guard let url = URL(string: "\(AuthenticationService.BACKEND_ENDPOINT)/request_confirm_code?email=\(email)") else {
             return
         }
         
@@ -167,7 +206,7 @@ class AuthenticationService: ObservableObject {
     }
     
     func confirmUserAccount(_ userAccountConfirmation: UserAccountConfirmation, _ successAction: @escaping () -> Void, _ failureAction: @escaping (Int) -> Void) {
-        guard let url = URL(string: "\(BACKEND_ENDPOINT)/confirm") else {
+        guard let url = URL(string: "\(AuthenticationService.BACKEND_ENDPOINT)/confirm") else {
             return
         }
         
@@ -198,7 +237,7 @@ class AuthenticationService: ObservableObject {
                 do {
                     let decodedData = try decoder.decode(UserAccountToken.self, from: data)
                     DispatchQueue.main.async {
-                        self.userAccountToken = decodedData
+                        self.userAccountTokenManager.setUserAccountToken(decodedData)
                     }
                     
                     successAction()
